@@ -1,0 +1,41 @@
+@mixin technical-work-gear() {
+	position: relative;
+
+	@keyframes rotate {
+		0% {
+			transform: rotate(35deg);
+		}
+
+		100% {
+			transform: rotate(395deg);
+		}
+	}
+
+	@keyframes rotate-reverse {
+		0% {
+			transform: rotate(15deg);
+		}
+
+		100% {
+			transform: rotate(-345deg);
+		}
+	}
+}
+
+.technicalWorkGearOne {
+	@include technical-work-gear;
+
+	bottom: 75px;
+	left: 48px;
+	transform: rotate(35deg);
+	animation: rotate 10s linear infinite;
+}
+
+.technicalWorkGearTwo {
+	@include technical-work-gear;
+
+	top: 75px;
+	right: 48px;
+	transform: rotate(15deg);
+	animation: rotate-reverse 10s linear infinite;
+}
