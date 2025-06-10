@@ -1,6 +1,7 @@
 export const calculateTimeLeft = () => {
 	const timeOverDate = 'July 3, 2025 00:00:00';
 	const targetDate = new Date(timeOverDate).getTime();
+
 	const now = new Date().getTime();
 	const timeLeft = targetDate - now;
 

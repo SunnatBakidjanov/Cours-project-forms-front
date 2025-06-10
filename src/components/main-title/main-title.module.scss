@@ -1,6 +1,31 @@
 .technicalWork {
-	font-family: Furore, sans-serif;
 	line-height: 125%;
 	font-size: 4.5rem;
 	letter-spacing: 1px;
+	text-align: center;
+
+	@media (width <= 1440px) {
+		line-height: 110%;
+		font-size: 3.5rem;
+	}
+
+	@media (width <= 1024px) {
+		font-size: 3rem;
+	}
+
+	@media (width <= 768px) {
+		font-size: 2.2rem;
+	}
+
+	@media (width <= 550px) {
+		font-size: 1.75rem;
+	}
+
+	@media (width <= 425px) {
+		font-size: 1.35rem;
+	}
+
+	@media (width <= 375px) {
+		font-size: 1.25rem;
+	}
 }
