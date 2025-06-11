@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 export const useTimeLeft = calculateTimeLeftFn => {
-	const [timeLeft, setTimeLeft] = useState(calculateTimeLeftFn());
+	const [timeLeft, setTimeLeft] = useState(calculateTimeLeftFn);
 
 	useEffect(() => {
 		const timer = setInterval(() => {

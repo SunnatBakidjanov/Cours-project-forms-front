@@ -1,5 +1,6 @@
 import { MainTitle } from '../../components/main-title/MainTitle';
 import { CountdownTimer } from './UI/count-down-timer/CountdownTimer';
+import { CountdownText } from './UI/cunt-down-text/CountDownText';
 import { GearImg } from './UI/gear-img/GearImg';
 
 import styles from './technical-work.module.scss';
@@ -16,7 +17,10 @@ export const Technicalwork = () => {
 						<GearImg styleUsePlace="technicalWorkGearTwo" />
 					</div>
 
-					<CountdownTimer />
+					<div className={styles.innerCount}>
+						<CountdownText />
+						<CountdownTimer />
+					</div>
 				</div>
 			</div>
 		</section>
