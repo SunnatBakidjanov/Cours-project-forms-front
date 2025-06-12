@@ -1,0 +1,14 @@
+{
+	"translationBtn": "EN",
+	"technikalWorkPage": {
+		"title": "Technical work is underway",
+		"countDownText": "Remaining until the completion of technical works",
+		"countText": {
+			"day": "D",
+			"hours": "H",
+			"minutes": "M",
+			"seconds": "S"
+		},
+		"countEndText": "Just a little more..."
+	}
+}

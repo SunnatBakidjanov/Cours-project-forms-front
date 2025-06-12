@@ -1,0 +1,14 @@
+{
+	"translationBtn": "RU",
+	"technikalWorkPage": {
+		"title": "Ведутся технические работы",
+		"countDownText": "До окончания технически работ осталось",
+		"countText": {
+			"day": "Д",
+			"hours": "Ч",
+			"minutes": "М",
+			"seconds": "С"
+		},
+		"countEndText": "Ещё немного..."
+	}
+}

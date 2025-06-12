@@ -1,4 +1,5 @@
 import { ChangeThemeButton } from '../../UI/change-theme-button/ChangeThemeButton';
+import { TranslationButton } from '../../UI/translaitor-button/TranslationButton';
 import { Background } from './UI/background/Background';
 import { CountdownTimer } from './UI/count-down-timer/CountdownTimer';
 import { CountdownText } from './UI/cunt-down-text/CountDownText';
@@ -16,6 +17,7 @@ export const Technicalwork = () => {
 				<div className={styles.wrapper}>
 					<div className={styles.menu}>
 						<ChangeThemeButton />
+						<TranslationButton />
 					</div>
 
 					<Title />

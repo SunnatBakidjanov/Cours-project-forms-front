@@ -1,5 +1,5 @@
 import { use } from 'react';
-import { useDisable } from './hooks/useDisable';
+import { useDisable } from '../../hooks/useDisable';
 
 import { ThemeContext } from '../../components/theme';
 import { Button } from '../button/Button';
@@ -10,9 +10,10 @@ import sunImg from '/imgs/webp/changeThemeSun.webp';
 import moonImg from '/imgs/webp/changeThemeMoon.webp';
 
 export const ChangeThemeButton = () => {
-	const { handleDisableonClick, isDisabled } = useDisable();
-
 	const { toggleTheme, isThemeLight } = use(ThemeContext);
+
+	const DISABLE_DILAY = 520;
+	const { handleDisableonClick, isDisabled } = useDisable(DISABLE_DILAY);
 
 	return (
 		<Button

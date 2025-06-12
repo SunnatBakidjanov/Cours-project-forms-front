@@ -1,8 +1,7 @@
 import { useState } from 'react';
 
-export const useDisable = () => {
+export const useDisable = (disabledTime = 400) => {
 	const [isDisabled, setDisable] = useState(false);
-	const DISABLE_DILAY = 520;
 
 	const handleDisableonClick = () => {
 		if (isDisabled) return;
@@ -11,7 +10,7 @@ export const useDisable = () => {
 
 		setTimeout(() => {
 			setDisable(false);
-		}, DISABLE_DILAY);
+		}, disabledTime);
 	};
 
 	return { handleDisableonClick, isDisabled };
