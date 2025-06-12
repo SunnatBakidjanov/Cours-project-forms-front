@@ -1,5 +1,5 @@
 import { ChangeThemeButton } from '../../UI/change-theme-button/ChangeThemeButton';
-import { Background } from './UI/bg-color/Background';
+import { Background } from './UI/background/Background';
 import { CountdownTimer } from './UI/count-down-timer/CountdownTimer';
 import { CountdownText } from './UI/cunt-down-text/CountDownText';
 import { GearImg } from './UI/gear-img/GearImg';

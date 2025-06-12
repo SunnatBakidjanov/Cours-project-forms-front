@@ -1,7 +1,7 @@
 .button {
 	display: flex;
 	align-items: center;
-	padding: 0 0.75rem;
+	padding: 0 0.5rem;
 	border-radius: 50px;
 	overflow: hidden;
 	transition: background-color var(--change-theme-transition) ease;
@@ -20,21 +20,21 @@
 }
 
 .moonVisible {
-	left: -2.6rem;
+	left: -60%;
 	transition: left var(--change-theme-transition) ease-out 0.2s;
 }
 
 .moonHidden {
-	left: 3rem;
+	left: 110%;
 	transition: left var(--change-theme-transition) ease-out;
 }
 
 .sunVisible {
-	right: -2.4rem;
+	right: -57%;
 	transition: right var(--change-theme-transition) ease-out 0.2s;
 }
 
 .sunHidden {
-	right: 3rem;
+	right: 110%;
 	transition: right var(--change-theme-transition) ease-out;
 }
