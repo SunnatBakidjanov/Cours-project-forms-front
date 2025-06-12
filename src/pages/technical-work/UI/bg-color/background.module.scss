@@ -1,0 +1,15 @@
+.root {
+	position: absolute;
+	inset: 0;
+	transition: background-color var(--change-theme-transition) ease-out;
+	pointer-events: none;
+	z-index: -1;
+}
+
+.bgLigthTheme {
+	background-color: var(--main-bg-color);
+}
+
+.bgDarkTheme {
+	background-color: var(--secondary-bg-color);
+}

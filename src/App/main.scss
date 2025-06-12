@@ -1,6 +1,14 @@
+@import 'https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap';
+
 :root {
+	// color
 	--main-font-color: #1f1d1d;
 	--main-bg-color: #fff;
+	--secondary-font-color: #fff;
+	--secondary-bg-color: #1f1d1d;
+
+	// transition time
+	--change-theme-transition: 0.4s;
 }
 
 .container {
@@ -12,4 +20,15 @@
 	font-style: normal;
 	font-weight: 400;
 	src: url('/fonts/Furore/Furore.otf');
+}
+
+@font-face {
+	font-family: 'Roboto Flex';
+	font-style: normal;
+	font-weight: 100 1000;
+	font-stretch: 100%;
+	font-display: swap;
+	src: url('https://fonts.gstatic.com/s/robotoflex/v29/NaNNepOXO_NexZs0b5QrzlOHb8wCikXpYqmZsWI-__OGbt8jZktqc2V3Zs0KvDLdBP8SBZtOs2IifRuUZQMsPJtUsR4DEK6cULNeUx9XgTnH37Ha_FIAp4Fm0PP1hw45DntW2x0wZGzhPmr1YNMYKYn9_1IQXGwJAiUJVUMdN5YUW4O8HtSoXjC79QRyaLshNDUf3e0O-gn5rrZCu20YNau2OPF80A.woff2')
+		format('woff2');
+	unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }

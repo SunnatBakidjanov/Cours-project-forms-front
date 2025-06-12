@@ -1,0 +1,25 @@
+.default {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.25rem 0.5rem;
+	font-family: 'Roboto Flex', sans-serif;
+	line-height: 100%;
+	font-size: 0.8rem;
+	color: #fff;
+	white-space: nowrap;
+	background-color: #797979;
+	transition: all 0.2s ease;
+	pointer-events: none;
+	border-radius: 20px;
+
+	&::after {
+		position: absolute;
+		top: -6px;
+		border-right: 10px solid transparent;
+		border-bottom: 10px solid #797979;
+		border-left: 10px solid transparent;
+		content: '';
+	}
+}

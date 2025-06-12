@@ -1,5 +1,10 @@
+import { use } from 'react';
+import { ThemeContext } from '../../../../components/theme';
+
 import styles from './count-down-text.module.scss';
 
 export const CountdownText = () => {
-	return <p className={styles.text}>До окончания технически работ осталось</p>;
+	const { isThemeLight } = use(ThemeContext);
+
+	return <p className={`${styles.text} ${isThemeLight ? styles.textLightTheme : styles.textDarkTheme}`}>До окончания технически работ осталось</p>;
 };

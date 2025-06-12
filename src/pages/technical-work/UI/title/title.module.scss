@@ -1,8 +1,9 @@
-.technicalWork {
+.title {
 	line-height: 125%;
 	font-size: 4.5rem;
 	letter-spacing: 1px;
 	text-align: center;
+	transition: color var(--change-theme-transition) ease-out;
 
 	@media (width <= 1440px) {
 		line-height: 110%;
@@ -28,4 +29,12 @@
 	@media (width <= 375px) {
 		font-size: 1.25rem;
 	}
+}
+
+.textLightTheme {
+	color: var(--main-font-color);
+}
+
+.textDarkTheme {
+	color: var(--secondary-font-color);
 }
