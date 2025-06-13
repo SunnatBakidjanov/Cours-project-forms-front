@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import { ThemeContext } from '.';
+import { getCurrentHour } from './scripts/getCurrentHour';
+import { LIGHT_THEME, DARK_THEME } from './scripts/themeConstants';
 
 export const ThemeContextProvider = ({ children }) => {
-	const lightTheme = 'lightTheme';
-	const darkTheme = 'darkTheme';
-	const [theme, setTheme] = useState(lightTheme);
+	const [theme, setTheme] = useState(() => getCurrentHour());
 
 	const toggleTheme = () => {
-		setTheme(currentTheme => (currentTheme === lightTheme ? darkTheme : lightTheme));
+		setTheme(currentTheme => (currentTheme === LIGHT_THEME ? DARK_THEME : LIGHT_THEME));
 	};
 
-	const isThemeLight = theme === lightTheme;
+	const isThemeLight = theme === LIGHT_THEME;
 
 	return <ThemeContext.Provider value={{ isThemeLight: isThemeLight, toggleTheme }}>{children}</ThemeContext.Provider>;
 };
