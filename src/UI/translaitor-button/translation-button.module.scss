@@ -11,7 +11,12 @@
 	column-gap: 0.5rem;
 	transition:
 		background-color var(--change-theme-transition) ease,
-		color var(--change-theme-transition) ease-out;
+		color var(--change-theme-transition) ease-out,
+		opacity 0.2s ease;
+
+	&:hover {
+		opacity: 0.8;
+	}
 
 	@media (width <= 768px) {
 		height: 27px;
@@ -28,10 +33,10 @@
 
 .linghtTheme {
 	color: var(--main-font-color);
-	background-color: #dfdfdf;
+	background-color: var(--main-accent-color);
 }
 
 .darkTheme {
 	color: var(--secondary-font-color);
-	background-color: #797979;
+	background-color: var(--secondary-accent-color);
 }

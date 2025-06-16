@@ -10,5 +10,21 @@
 			"seconds": "S"
 		},
 		"countEndText": "Just a little more..."
+	},
+	"authPage": {
+		"title": "Create an account",
+		"submitButton": "Sign up",
+		"form": {
+			"name": "Name",
+			"surname": "Surname",
+			"email": "E-mail",
+			"password": "Password",
+			"repeatPassword": "Repeat Password",
+			"namePlaceholder": "Enter your name",
+			"surnamePlaceholder": "Enter your last name",
+			"emailPlaceholder": "Enter your email",
+			"passwordPlaceholder": "Enter password",
+			"repeatPasswordPlaceholder": "Repeat password"
+		}
 	}
 }

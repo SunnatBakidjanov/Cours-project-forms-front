@@ -10,5 +10,21 @@
 			"seconds": "С"
 		},
 		"countEndText": "Ещё немного..."
+	},
+	"authPage": {
+		"title": "Создать аккаунт",
+		"submitButton": "Зарегистрироваться",
+		"form": {
+			"name": "Имя",
+			"surname": "Фамилия",
+			"email": "E-mail",
+			"password": "Пароль",
+			"repeatPassword": "Повторите пароль",
+			"namePlaceholder": "Введите ваше имя",
+			"surnamePlaceholder": "Введит вашу фамилию",
+			"emailPlaceholder": "Введите фаш email",
+			"passwordPlaceholder": "Введите пароль",
+			"repeatPasswordPlaceholder": "Повторите пароль"
+		}
 	}
 }

@@ -1,0 +1,31 @@
+.section {
+	font-family: 'Roboto Flex', sans-serif;
+}
+
+.wrapper {
+	width: 100%;
+	min-height: 100vh;
+}
+
+.innerForm {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 50%;
+	min-height: 100vh;
+}
+
+.innerText {
+	width: 50%;
+}
+
+.toolbar {
+	position: absolute;
+	top: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 1rem;
+	column-gap: 0.8rem;
+}

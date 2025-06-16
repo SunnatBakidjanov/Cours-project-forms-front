@@ -1,0 +1,108 @@
+.colorLightTheme {
+	color: var(--main-font-color);
+}
+
+.colorDarkTheme {
+	color: var(--main-bg-color);
+}
+
+.accentBgLightTheme {
+	background: var(--ligth-theme-accent-bg-color);
+}
+
+.accentBgDarkTheme {
+	background-color: var(--dark-theme-accent-bg-color);
+}
+
+.boxShadowLightTheme {
+	box-shadow: 0 10px 30px var(--main-accent-color);
+}
+
+.boxShadowDarkTheme {
+	box-shadow: 0 10px 30px #000;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	margin: 100px 0;
+	padding: 2rem 4rem;
+	width: 90%;
+	border-radius: 12px;
+	row-gap: 2.5rem;
+	transition: box-shadow var(--change-theme-transition) ease-out;
+}
+
+.title {
+	font-family: Furore, sans-serif;
+	font-weight: 400;
+	line-height: 115%;
+	font-size: 3rem;
+	letter-spacing: 0.5px;
+	transition: color var(--change-theme-transition) ease-out;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	row-gap: 2rem;
+}
+
+.formBlock {
+	display: flex;
+	row-gap: 0.75rem;
+	flex-direction: column;
+}
+
+.label {
+	position: relative;
+	width: 100%;
+}
+
+.labelUnderline {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0%;
+	height: 3px;
+	transform: translateX(-50%);
+	transition:
+		width 0.3s,
+		background-color var(--change-theme-transition) ease-out;
+}
+
+.input {
+	padding: 0.75rem 0.5rem;
+	width: 100%;
+	font-size: 1rem;
+	border: 1px solid var(--main-accent-color);
+	border-radius: 5px;
+
+	&:focus ~ .labelUnderline {
+		width: 100%;
+	}
+
+	&::placeholder {
+		font-weight: 600;
+		letter-spacing: 0.1px;
+		opacity: 0.5;
+	}
+}
+
+.button {
+	padding: 1rem 0;
+	font-family: Furore, sans-serif;
+	font-size: 1.2rem;
+	letter-spacing: 0.5px;
+	border-radius: 10px;
+	transition:
+		color var(--change-theme-transition) ease-out,
+		background-color var(--change-theme-transition) ease-out,
+		opacity 0.3s ease,
+		letter-spacing 0.1s ease;
+
+	&:hover {
+		letter-spacing: 1px;
+		opacity: 0.8;
+	}
+}

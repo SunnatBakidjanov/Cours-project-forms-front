@@ -4,15 +4,21 @@
 	padding: 0 0.5rem;
 	border-radius: 50px;
 	overflow: hidden;
-	transition: background-color var(--change-theme-transition) ease;
+	transition:
+		background-color var(--change-theme-transition) ease,
+		opacity 0.2s ease;
+
+	&:hover {
+		opacity: 0.8;
+	}
 }
 
 .ligthTheme {
-	background-color: #dfdfdf;
+	background-color: var(--main-accent-color);
 }
 
 .darkTheme {
-	background-color: #797979;
+	background-color: var(--secondary-accent-color);
 }
 
 .moonSunRoot {

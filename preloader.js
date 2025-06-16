@@ -11,7 +11,9 @@
 		document.removeEventListener('load', removePreloader);
 	}
 
-	(function getCurrentHour() {
+	(function setCurrentTheme() {
+		if (!preloader?.parentNode) return;
+
 		const now = new Date();
 		const hours = now.getHours();
 

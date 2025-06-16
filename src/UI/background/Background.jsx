@@ -1,4 +1,4 @@
-import { ThemeContext } from '../../../../components/theme';
+import { ThemeContext } from '../../components/theme';
 import { use } from 'react';
 
 import classNames from 'classnames';

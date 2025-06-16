@@ -9,6 +9,16 @@
 	}
 }
 
+@keyframes show-page {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
 #preloader {
 	position: fixed;
 	z-index: 9999;
@@ -16,6 +26,8 @@
 	align-items: center;
 	justify-content: center;
 	inset: 0;
+	opacity: 0;
+	animation: show-page 0s ease forwards 1.4s;
 }
 
 #spinner {
