@@ -4,6 +4,7 @@ import { ChangeThemeButton } from '../../UI/change-theme-button/ChangeThemeButto
 import { TranslationButton } from '../../UI/translaitor-button/TranslationButton';
 
 import styles from './authorization.module.scss';
+import { AuthWelcome } from './UI/auth-welocme/AuthWelcome';
 
 export const Authorization = () => {
 	return (
@@ -20,7 +21,9 @@ export const Authorization = () => {
 						<AuthForm />
 					</div>
 
-					<div className={styles.innerText}></div>
+					<div className={styles.innerText}>
+						<AuthWelcome />
+					</div>
 				</div>
 			</div>
 		</section>

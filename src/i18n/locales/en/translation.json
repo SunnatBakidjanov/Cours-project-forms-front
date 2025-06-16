@@ -16,15 +16,20 @@
 		"submitButton": "Sign up",
 		"form": {
 			"name": "Name",
-			"surname": "Surname",
+			"surname": "Last name",
 			"email": "E-mail",
 			"password": "Password",
 			"repeatPassword": "Repeat Password",
 			"namePlaceholder": "Enter your name",
 			"surnamePlaceholder": "Enter your last name",
-			"emailPlaceholder": "Enter your email",
+			"emailPlaceholder": "Enter your e-mail",
 			"passwordPlaceholder": "Enter password",
 			"repeatPasswordPlaceholder": "Repeat password"
+		},
+		"welcomeSide": {
+			"title": "Hello, welcome!",
+			"text": "Already have an account?",
+			"button": "Login"
 		}
 	}
 }

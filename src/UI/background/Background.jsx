@@ -1,11 +1,10 @@
-import { ThemeContext } from '../../components/theme';
-import { use } from 'react';
+import { useThemeVar } from '../../hooks/useThemeVar/useThemeVar';
 
 import classNames from 'classnames';
 import styles from './background.module.scss';
 
 export const Background = () => {
-	const { isThemeLight } = use(ThemeContext);
+	const { mainBgColor } = useThemeVar();
 
-	return <div className={classNames(styles.root, isThemeLight ? styles.bgLigthTheme : styles.bgDarkTheme)}></div>;
+	return <div className={classNames(styles.root, mainBgColor)}></div>;
 };

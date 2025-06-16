@@ -22,9 +22,14 @@
 			"repeatPassword": "Повторите пароль",
 			"namePlaceholder": "Введите ваше имя",
 			"surnamePlaceholder": "Введит вашу фамилию",
-			"emailPlaceholder": "Введите фаш email",
+			"emailPlaceholder": "Введите ваш e-mail",
 			"passwordPlaceholder": "Введите пароль",
 			"repeatPasswordPlaceholder": "Повторите пароль"
+		},
+		"welcomeSide": {
+			"title": "Привет, Добро пожаловать!",
+			"text": "Уже есть аккаунт?",
+			"button": "Войти"
 		}
 	}
 }

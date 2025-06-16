@@ -1,3 +1,7 @@
+.root {
+	transition: color var(--change-theme-transition);
+}
+
 .formText {
 	position: relative;
 	left: 2px;
@@ -5,5 +9,10 @@
 	font-weight: 400;
 	font-size: 1.2rem;
 	letter-spacing: 0.5px;
-	transition: color var(--change-theme-transition);
+}
+
+.welcomeText {
+	font-weight: 600;
+	line-height: 110%;
+	font-size: 1.5rem;
 }

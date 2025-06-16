@@ -1,5 +1,4 @@
-import { use } from 'react';
-import { ThemeContext } from '../../components/theme';
+import { useThemeVar } from '../../hooks/useThemeVar/useThemeVar';
 import { useDisable } from '../../hooks/useDisable';
 import { useTranslation } from 'react-i18next';
 import { changeLanguage } from './scripts/changeLanguage';
@@ -8,9 +7,10 @@ import { TranslationImg } from './UI/translation-img/TranslationImg';
 import { Button } from '../button/Button';
 
 import styles from './translation-button.module.scss';
+import classNames from 'classnames';
 
 export const TranslationButton = () => {
-	const { isThemeLight } = use(ThemeContext);
+	const { changeColor, bgBtnColor } = useThemeVar();
 	const { t } = useTranslation();
 
 	const DISABLE_DILAY = 200;
@@ -25,7 +25,7 @@ export const TranslationButton = () => {
 				handleChangeLanguageOnClick();
 			}}
 			disabled={isDisabled}
-			className={`${styles.button} ${isThemeLight ? styles.linghtTheme : styles.darkTheme}`}
+			className={classNames(styles.button, changeColor, bgBtnColor)}
 		>
 			<TranslationImg />
 		</Button>

@@ -3,6 +3,7 @@
 }
 
 .wrapper {
+	display: flex;
 	width: 100%;
 	min-height: 100vh;
 }
@@ -12,12 +13,16 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 50%;
+	width: 60%;
 	min-height: 100vh;
 }
 
 .innerText {
-	width: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	width: 40%;
+	min-height: 100vh;
 }
 
 .toolbar {
