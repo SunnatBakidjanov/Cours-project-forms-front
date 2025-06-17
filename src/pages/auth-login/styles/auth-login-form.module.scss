@@ -1,27 +1,3 @@
-.colorLightTheme {
-	color: var(--main-font-color);
-}
-
-.colorDarkTheme {
-	color: var(--main-bg-color);
-}
-
-.accentBgLightTheme {
-	background: var(--ligth-theme-accent-bg-color);
-}
-
-.accentBgDarkTheme {
-	background-color: var(--dark-theme-accent-bg-color);
-}
-
-.boxShadowLightTheme {
-	box-shadow: 0 10px 30px var(--main-accent-color);
-}
-
-.boxShadowDarkTheme {
-	box-shadow: 0 10px 30px #000;
-}
-
 .container {
 	display: flex;
 	flex-direction: column;

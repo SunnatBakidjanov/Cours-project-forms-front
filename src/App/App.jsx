@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { MainLayout } from '../layout/MainLayout';
 import { Technicalwork } from '../pages/technical-work/Technicalwork';
 import { ThemeContextProvider } from '../components/theme/ThemeContextProvider';
-import { Authorization } from '../pages/auth/Authorization';
+import { Authorization } from '../pages/auth-login/auth/Authorization';
 
 import './main.scss';
 import './reset.scss';
