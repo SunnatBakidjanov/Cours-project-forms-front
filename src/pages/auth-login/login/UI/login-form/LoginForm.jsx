@@ -16,10 +16,10 @@ export const LoginForm = () => {
 	const { root, loginAuthPage } = useThemeVar();
 
 	return (
-		<div className={classNames(styles.container)}>
+		<div className={classNames(styles.container, loginAuthPage.formBoxShadow)}>
 			<MainTitle text={t('loginPage.title')} className={classNames(styles.title, root.fontColor)} />
 
-			<form className={styles.form}>
+			<form className={classNames(styles.form)}>
 				<div className={styles.formBlock}>
 					<Paragraph text={t('loginPage.form.email')} styleUsePlace="formText" className={root.fontColor} />
 

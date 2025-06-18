@@ -18,7 +18,7 @@ export const AuthForm = () => {
 	const { root, loginAuthPage } = useThemeVar();
 
 	return (
-		<div className={classNames(styles.container)}>
+		<div className={classNames(styles.container, loginAuthPage.formBoxShadow)}>
 			<MainTitle text={t('authPage.title')} className={classNames(styles.title, root.fontColor)} />
 
 			<form className={styles.form}>

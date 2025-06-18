@@ -7,7 +7,6 @@
 	border-radius: 12px;
 	row-gap: 2.5rem;
 	transition: box-shadow var(--change-theme-transition) ease-out;
-	box-shadow: 5px 10px 25px #000;
 
 	@media (width <= 1440px) {
 		padding: 2rem 3rem;
@@ -24,12 +23,12 @@
 
 	@media (width <= 550px) {
 		row-gap: 1.7rem;
-		padding: 2rem 1.5rem;
+		padding: 1.5rem;
 	}
 
 	@media (width <= 425px) {
 		row-gap: 1.5rem;
-		padding: 2rem 1rem;
+		padding: 1.5rem 1rem;
 	}
 }
 

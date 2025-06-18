@@ -1,10 +1,5 @@
 .bgLight {
-	background: linear-gradient(90deg, var(--ligth-theme-accent-bg-color) 30%, var(--main-bg-color) 100%);
 	background-color: var(--main-bg-color);
-
-	@media (width <= 768px) {
-		background: linear-gradient(90deg, var(--ligth-theme-accent-bg-color) 50%, var(--main-bg-color) 100%);
-	}
 }
 
 .bgDark {
@@ -12,7 +7,7 @@
 }
 
 .formBtnBgColorLightTheme {
-	background-color: #1080ff;
+	background-color: var(--ligth-theme-accent-bg-color);
 }
 
 .formBtnBgColorDarkTheme {
@@ -20,7 +15,7 @@
 }
 
 .btnLinkColorLightTheme {
-	color: var(--secondary-font-color);
+	color: var(--ligth-theme-accent-bg-color);
 }
 
 .btnLinkColorDarkTheme {
@@ -28,9 +23,17 @@
 }
 
 .btnLinkUnderLineBgColorLithTheme {
-	background-color: var(--secondary-font-color);
+	background-color: var(--ligth-theme-accent-bg-color);
 }
 
 .btnLinkUnderLineBgColorDarkTheme {
 	background-color: var(--dark-theme-accent-bg-color);
+}
+
+.formBoxShadowLightTheme {
+	box-shadow: 2px 5px 30px #c3c3c3;
+}
+
+.formBoxShadowDarkTheme {
+	box-shadow: 2px 5px 30px #000;
 }
