@@ -6,7 +6,7 @@ export const Paragraph = ({ text, styleUsePlace, className }) => {
 		<p
 			className={classNames(className, styles.root, {
 				[styles.formText]: styleUsePlace === 'formText',
-				[styles.welcomeText]: styleUsePlace === 'welcomeText',
+				[styles.linkBtn]: styleUsePlace === 'linkBtn',
 			})}
 		>
 			{text}

@@ -148,7 +148,9 @@
 				"selector-class-pattern": null,
 				"scss/dollar-variable-pattern": null,
 				"block-no-empty": null,
-				"order/order": null
+				"order/order": null,
+				"value-no-vendor-prefix": null,
+				"property-no-vendor-prefix": null
 			}
 		},
 		{

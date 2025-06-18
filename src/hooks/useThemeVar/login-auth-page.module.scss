@@ -1,0 +1,32 @@
+.bgLight {
+	background: linear-gradient(90deg, var(--ligth-theme-accent-bg-color) 0%, var(--main-bg-color) 100%);
+	background-color: var(--main-bg-color);
+}
+
+.bgDark {
+	background-color: var(--secondary-bg-color);
+}
+
+.formBtnBgColorLightTheme {
+	background-color: #1080ff;
+}
+
+.formBtnBgColorDarkTheme {
+	background-color: var(--dark-theme-accent-bg-color);
+}
+
+.btnLinkColorLightTheme {
+	color: var(--secondary-font-color);
+}
+
+.btnLinkColorDarkTheme {
+	color: var(--dark-theme-accent-bg-color);
+}
+
+.btnLinkUnderLineBgColorLithTheme {
+	background-color: var(--secondary-font-color);
+}
+
+.btnLinkUnderLineBgColorDarkTheme {
+	background-color: var(--dark-theme-accent-bg-color);
+}

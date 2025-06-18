@@ -1,26 +1,27 @@
 import { Background } from '../../../UI/background/Background';
-import { LinkBtn } from '../UI/link-btn/LinkBtn';
 import { ChangeThemeButton } from '../../../UI/change-theme-button/ChangeThemeButton';
 import { TranslationButton } from '../../../UI/translaitor-button/TranslationButton';
-import { AuthForm } from './UI/auth-form/AuthForm';
+import { LoginForm } from './UI/login-form/LoginForm';
 
 import styles from '../styles/auth-login-root.module.scss';
+import classNames from 'classnames';
+import { LinkBtn } from '../UI/link-btn/LinkBtn';
 
-export const Authorization = () => {
+export const Login = () => {
 	return (
 		<section>
 			<Background styleUsePlace="loginAuthPage" />
 
 			<div className="container">
-				<div className={styles.wrapper}>
+				<div className={classNames(styles.wrapper, styles.wrapperReverse)}>
 					<div className={styles.innerForm}>
 						<div className={styles.toolbar}>
 							<ChangeThemeButton />
 							<TranslationButton />
 						</div>
-						<AuthForm />
+						<LoginForm />
 					</div>
-					<LinkBtn text={'authPage.linkBtn.text'} btnText={'authPage.linkBtn.button'} link={'/login'} />
+					<LinkBtn text={'loginPage.linkBtn.text'} btnText={'loginPage.linkBtn.button'} link={'/auth'} />
 				</div>
 			</div>
 		</section>

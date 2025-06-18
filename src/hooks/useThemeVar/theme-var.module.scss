@@ -3,37 +3,21 @@
 }
 
 .colorDarkTheme {
-	color: var(--main-bg-color);
+	color: var(--secondary-font-color);
 }
 
-.bgBtnColorLightTheme {
-	background-color: var(--main-accent-color);
-}
-
-.bgBtnColorDarkTheme {
-	background-color: var(--secondary-accent-color);
-}
-
-.accentBgLightTheme {
-	background: var(--ligth-theme-accent-bg-color);
-}
-
-.accentBgDarkTheme {
-	background-color: var(--dark-theme-accent-bg-color);
-}
-
-.mainBgLigthTheme {
+.bgColorLightTheme {
 	background-color: var(--main-bg-color);
 }
 
-.mainBgDarkTheme {
+.bgColorDarkTheme {
 	background-color: var(--secondary-bg-color);
 }
 
-.boxShadowLightTheme {
-	box-shadow: 0 10px 30px var(--main-accent-color);
+.toolbarBtnBgLightTheme {
+	background-color: var(--main-accent-color);
 }
 
-.boxShadowDarkTheme {
-	box-shadow: 0 10px 30px #000;
+.toolbarBtnBgDarkTheme {
+	background-color: var(--secondary-accent-color);
 }

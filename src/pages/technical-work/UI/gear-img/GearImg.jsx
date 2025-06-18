@@ -1,15 +1,13 @@
-import { use } from 'react';
-import { ThemeContext } from '../../../../components/theme';
-
 import classNames from 'classnames';
 import styles from './gear.module.scss';
+import { useThemeVar } from '../../../../hooks/useThemeVar/useThemeVar';
 
 export const GearImg = ({ styleUsePlace }) => {
-	const { isThemeLight } = use(ThemeContext);
+	const { root } = useThemeVar();
 
 	return (
 		<svg
-			className={classNames(isThemeLight ? styles.lightTheme : styles.darkTheme, {
+			className={classNames(root.fontColor, {
 				[styles.technicalWorkGearOne]: styleUsePlace === 'technicalWorkGearOne',
 				[styles.technicalWorkGearTwo]: styleUsePlace === 'technicalWorkGearTwo',
 			})}

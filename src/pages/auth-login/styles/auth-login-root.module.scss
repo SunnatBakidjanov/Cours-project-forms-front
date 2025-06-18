@@ -4,25 +4,26 @@
 
 .wrapper {
 	display: flex;
-	width: 100%;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto;
+	width: 80%;
 	min-height: 100vh;
 }
 
 .innerForm {
-	position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 55%;
-	min-height: 100vh;
+	width: 100%;
 }
 
 .innerText {
 	display: flex;
 	align-items: center;
-	justify-content: flex-end;
-	width: 45%;
-	min-height: 100vh;
+	justify-content: center;
+	width: 100%;
 }
 
 .toolbar {

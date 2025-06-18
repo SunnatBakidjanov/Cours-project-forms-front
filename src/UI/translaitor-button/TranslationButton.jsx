@@ -10,7 +10,7 @@ import styles from './translation-button.module.scss';
 import classNames from 'classnames';
 
 export const TranslationButton = () => {
-	const { changeColor, bgBtnColor } = useThemeVar();
+	const { root } = useThemeVar();
 	const { t } = useTranslation();
 
 	const DISABLE_DILAY = 200;
@@ -25,7 +25,7 @@ export const TranslationButton = () => {
 				handleChangeLanguageOnClick();
 			}}
 			disabled={isDisabled}
-			className={classNames(styles.button, changeColor, bgBtnColor)}
+			className={classNames(styles.button, root.toolbarBtnBgColor, root.fontColor)}
 		>
 			<TranslationImg />
 		</Button>

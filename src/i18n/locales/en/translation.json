@@ -1,5 +1,5 @@
 {
-	"translationBtn": "EN",
+	"translationBtn": "RU",
 	"technikalWorkPage": {
 		"title": "Technical work is underway",
 		"countDownText": "Remaining until the completion of technical works",
@@ -26,10 +26,23 @@
 			"passwordPlaceholder": "Enter password",
 			"repeatPasswordPlaceholder": "Repeat password"
 		},
-		"welcomeSide": {
-			"title": "Hello, welcome!",
+		"linkBtn": {
 			"text": "Already have an account?",
 			"button": "Login"
+		}
+	},
+	"loginPage": {
+		"title": "Login to account",
+		"submitButton": "Sign in",
+		"form": {
+			"email": "E-mail",
+			"password": "Password",
+			"emailPlaceholder": "Enter your e-mail",
+			"passwordPlaceholder": "Enter password"
+		},
+		"linkBtn": {
+			"text": "Don't have an account?",
+			"button": "Create an account"
 		}
 	}
 }

@@ -4,6 +4,7 @@ import { MainLayout } from '../layout/MainLayout';
 import { Technicalwork } from '../pages/technical-work/Technicalwork';
 import { ThemeContextProvider } from '../components/theme/ThemeContextProvider';
 import { Authorization } from '../pages/auth-login/auth/Authorization';
+import { Login } from '../pages/auth-login/login/Login';
 
 import './main.scss';
 import './reset.scss';
@@ -17,6 +18,7 @@ export const App = () => {
 						<Route path="/" element={<Navigate to="/auth" replace />} />
 						<Route path="/technical-work" element={<Technicalwork />} />
 						<Route path="/auth" element={<Authorization />} />
+						<Route path="/login" element={<Login />} />
 					</Routes>
 				</MainLayout>
 			</ThemeContextProvider>

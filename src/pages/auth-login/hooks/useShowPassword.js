@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 
 export const useShowPassword = () => {
 	const [showPassword, setShowPassword] = useState(false);
-	const hidePasswordDelay = 3000;
+	const hidePasswordDelay = 5000;
 	const timeoutRef = useRef(null);
 
 	const togglePassword = () => {

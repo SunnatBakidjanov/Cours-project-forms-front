@@ -2,16 +2,25 @@ import { ThemeContext } from '../../components/theme';
 import { use } from 'react';
 
 import styles from './theme-var.module.scss';
+import loginAuthStyles from './login-auth-page.module.scss';
 
 export const useThemeVar = () => {
 	const { isThemeLight } = use(ThemeContext);
 
-	return {
-		changeColor: isThemeLight ? styles.colorLightTheme : styles.colorDarkTheme,
-		reverseChangeColor: isThemeLight ? styles.colorDarkTheme : styles.colorLightTheme,
-		bgBtnColor: isThemeLight ? styles.bgBtnColorLightTheme : styles.bgBtnColorDarkTheme,
-		mainBgColor: isThemeLight ? styles.mainBgLigthTheme : styles.mainBgDarkTheme,
-		accentbgColor: isThemeLight ? styles.accentBgLightTheme : styles.accentBgDarkTheme,
-		boxShadow: isThemeLight ? styles.boxShadowLightTheme : styles.boxShadowDarkTheme,
+	const root = {
+		fontColor: isThemeLight ? styles.colorLightTheme : styles.colorDarkTheme,
+		reverseFontColor: isThemeLight ? styles.colorDarkTheme : styles.colorLightTheme,
+		bgColor: isThemeLight ? styles.bgColorLightTheme : styles.bgColorDarkTheme,
+		reverseBgColor: isThemeLight ? styles.bgColorDarkTheme : styles.bgColorLightTheme,
+		toolbarBtnBgColor: isThemeLight ? styles.toolbarBtnBgLightTheme : styles.toolbarBtnBgDarkTheme,
 	};
+
+	const loginAuthPage = {
+		bgColor: isThemeLight ? loginAuthStyles.bgLight : loginAuthStyles.bgDark,
+		formBtnBgColor: isThemeLight ? loginAuthStyles.formBtnBgColorLightTheme : loginAuthStyles.formBtnBgColorDarkTheme,
+		btnLinkColor: isThemeLight ? loginAuthStyles.btnLinkColorLightTheme : loginAuthStyles.btnLinkColorDarkTheme,
+		btnLinkUnderlineBgColor: isThemeLight ? loginAuthStyles.btnLinkUnderLineBgColorLithTheme : loginAuthStyles.btnLinkUnderLineBgColorDarkTheme,
+	};
+
+	return { root, loginAuthPage };
 };

@@ -1,5 +1,5 @@
 {
-	"translationBtn": "RU",
+	"translationBtn": "EN",
 	"technikalWorkPage": {
 		"title": "Ведутся технические работы",
 		"countDownText": "До окончания технически работ осталось",
@@ -26,10 +26,23 @@
 			"passwordPlaceholder": "Введите пароль",
 			"repeatPasswordPlaceholder": "Повторите пароль"
 		},
-		"welcomeSide": {
-			"title": "Привет, Добро пожаловать!",
+		"linkBtn": {
 			"text": "Уже есть аккаунт?",
 			"button": "Войти"
+		}
+	},
+	"loginPage": {
+		"title": "Войти в аккаунт",
+		"submitButton": "Войти",
+		"form": {
+			"email": "E-mail",
+			"password": "Пароль",
+			"emailPlaceholder": "Введите ваш e-mail",
+			"passwordPlaceholder": "Введите пароль"
+		},
+		"linkBtn": {
+			"text": "У вас нет учетной записи?",
+			"button": "Создать аккаунт"
 		}
 	}
 }
