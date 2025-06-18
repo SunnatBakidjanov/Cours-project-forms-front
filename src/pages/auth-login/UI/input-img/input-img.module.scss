@@ -7,9 +7,27 @@
 	transform: translateY(-50%);
 	object-fit: contain;
 	pointer-events: none;
+
+	@media (width <= 768px) {
+		width: 16px;
+		height: 16px;
+	}
+
+	@media (width <= 550px) {
+		width: 14px;
+		height: 14px;
+	}
 }
 
 .text {
 	right: 10px;
 	pointer-events: none;
+
+	@media (width <= 768px) {
+		right: 12px;
+	}
+
+	@media (width <= 550px) {
+		right: 14px;
+	}
 }

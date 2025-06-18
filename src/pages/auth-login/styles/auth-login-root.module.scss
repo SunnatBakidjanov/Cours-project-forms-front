@@ -10,6 +10,18 @@
 	margin: 0 auto;
 	width: 80%;
 	min-height: 100vh;
+
+	@media (width <= 1440px) {
+		width: 90%;
+	}
+
+	@media (width <= 550px) {
+		width: 95%;
+	}
+
+	@media (width <= 425px) {
+		width: 100%;
+	}
 }
 
 .innerForm {
