@@ -15,7 +15,7 @@ export const App = () => {
 			<ThemeContextProvider>
 				<MainLayout>
 					<Routes>
-						<Route path="/" element={<Navigate to="/technical-work" replace />} />
+						<Route path="/" element={<Navigate to="/auth" replace />} />
 						<Route path="/technical-work" element={<Technicalwork />} />
 						<Route path="/auth" element={<Authorization />} />
 						<Route path="/login" element={<Login />} />

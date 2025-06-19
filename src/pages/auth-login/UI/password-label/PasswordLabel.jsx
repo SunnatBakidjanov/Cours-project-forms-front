@@ -9,7 +9,7 @@ import styles from '../../styles/auth-login-form.module.scss';
 import btnStyles from './password-label.module.scss';
 import classNames from 'classnames';
 
-export const PasswordLabel = ({ placeholderText, name, underlineThemeClassName }) => {
+export const PasswordLabel = ({ placeholderText, name, underlineThemeClassName, value, onChange }) => {
 	const { showPassword, togglePassword } = useShowPassword();
 	const inputType = showPassword ? 'text' : 'password';
 	const changeEyeStyles = showPassword ? btnStyles.eyeLineShow : '';
@@ -19,7 +19,7 @@ export const PasswordLabel = ({ placeholderText, name, underlineThemeClassName }
 
 	return (
 		<label className={styles.label}>
-			<input className={styles.input} maxLength={255} type={inputType} name={name} placeholder={placeholderText} required />
+			<input className={styles.input} maxLength={255} type={inputType} name={name} placeholder={placeholderText} required value={value} onChange={onChange} />
 			<span className={underlineThemeClassName}></span>
 			<Button
 				onClick={() => {

@@ -15,7 +15,7 @@ export const LinkBtn = ({ text, btnText, link }) => {
 
 	return (
 		<div className={classNames(styles.container)}>
-			<span className={classNames(styles.overLine, root.reverseBgColor)}></span>
+			<span className={classNames(styles.overLine, loginAuthPage.btnLinkUnderlineBgColor)}></span>
 			<Paragraph styleUsePlace="linkBtn" text={t(text)} className={root.fontColor} />
 			<Button
 				text={t(btnText)}
