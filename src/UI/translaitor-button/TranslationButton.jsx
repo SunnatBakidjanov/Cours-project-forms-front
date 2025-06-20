@@ -15,7 +15,7 @@ export const TranslationButton = () => {
 
 	const DISABLE_DILAY = 200;
 	const { handleDisableonClick, isDisabled } = useDisable(DISABLE_DILAY);
-	const handleChangeLanguageOnClick = changeLanguage();
+	const { handleChangeLanguageOnClick } = changeLanguage();
 
 	return (
 		<Button

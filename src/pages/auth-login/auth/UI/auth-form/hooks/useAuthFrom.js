@@ -1,4 +1,6 @@
-import { useReducer } from 'react';
+import { useReducer, use } from 'react';
+import { changeLanguage } from '../../../../../../UI/translaitor-button/scripts/changeLanguage';
+import { ThemeContext } from '../../../../../../components/theme';
 import axios from 'axios';
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -27,6 +29,10 @@ function reducer(state, { type, field, payload }) {
 
 export const useAuthFrom = () => {
 	const [state, dispatch] = useReducer(reducer, initialState);
+	const { currentLang } = changeLanguage();
+	const { isThemeLight } = use(ThemeContext);
+
+	console.log(isThemeLight);
 
 	const setField = (field, value) => {
 		dispatch({ type: ACTIONS.SET_FIELD, field, payload: value });
@@ -35,6 +41,7 @@ export const useAuthFrom = () => {
 	const validate = () => {
 		const errors = {};
 		if (!/\S+@\S+\.\S+/.test(state.email)) errors.email = 'Invalid email format';
+		if (state.password.length < 6) errors.password = 'Invalid password';
 		if (state.password !== state.repeatPassword) errors.repeatPassword = 'Passwords do not match';
 
 		return errors;
@@ -53,6 +60,8 @@ export const useAuthFrom = () => {
 				surname: state.surname,
 				email: state.email,
 				password: state.password,
+				lang: currentLang,
+				theme: isThemeLight,
 			});
 
 			return { success: true, message: res.data.message };

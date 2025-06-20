@@ -9,5 +9,5 @@ export const changeLanguage = () => {
 		i18n.changeLanguage(nextLang);
 	};
 
-	return handleChangeLanguageOnClick;
+	return { handleChangeLanguageOnClick, currentLang };
 };
