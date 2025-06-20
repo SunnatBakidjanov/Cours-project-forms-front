@@ -7,6 +7,7 @@ import { MainTitle } from '../../../../../UI/main-title/MainTitle';
 import { Paragraph } from '../../../UI/paragraph/Paragrph';
 import { InputImg } from '../../../UI/input-img/InputImg';
 import { PasswordLabel } from '../../../UI/password-label/PasswordLabel';
+import { SubmitBtnLoader } from '../../../UI/submit-btn-loader/SubmitBtnLoader';
 
 import styles from '../../../styles/auth-login-form.module.scss';
 import classNames from 'classnames';
@@ -19,7 +20,7 @@ export const AuthForm = () => {
 	const { root, loginAuthPage } = useThemeVar();
 
 	const { state, setField, onSubmit } = useAuthFrom();
-	const { name, surname, email, password, repeatPassword } = state;
+	const { name, surname, email, password, repeatPassword, errors, isLoading } = state;
 
 	return (
 		<div className={classNames(styles.container, loginAuthPage.formBoxShadow)}>
@@ -54,6 +55,9 @@ export const AuthForm = () => {
 						<span className={classNames(styles.labelUnderline)}></span>
 						<InputImg src={emailImg} styleUsePlace="text" />
 					</label>
+
+					{errors.email?.includes('EMAIL_ALREADY_EXISTS') && <Paragraph styleUsePlace="formError" text={t('authPage.errors.emailAlreadyExists')} className={loginAuthPage.errorMessages} />}
+					{errors.email?.includes('EMAIL_INVALID_FORMAT') && <Paragraph styleUsePlace="formError" text={t('authPage.errors.emailInvalidFormat')} className={loginAuthPage.errorMessages} />}
 				</div>
 
 				<div className={styles.formBlock}>
@@ -72,9 +76,13 @@ export const AuthForm = () => {
 						value={repeatPassword}
 						onChange={e => setField('repeatPassword', e.target.value)}
 					/>
+
+					{errors.repeatPassword?.includes('PASSWORDS_DO_NOT_MATCH') && <Paragraph styleUsePlace="formError" text={t(`authPage.errors.repeatPassword`)} className={loginAuthPage.errorMessages} />}
 				</div>
 
-				<Button text={t('authPage.submitButton')} type="submit" className={classNames(styles.button, loginAuthPage.formBtnBgColor, root.reverseFontColor)} />
+				<Button text={isLoading ? '' : t('authPage.submitButton')} type="submit" className={classNames(styles.button, loginAuthPage.formBtnBgColor, root.reverseFontColor)} disabled={isLoading}>
+					{isLoading ? <SubmitBtnLoader className={loginAuthPage.submitLoader} /> : undefined}
+				</Button>
 			</form>
 		</div>
 	);

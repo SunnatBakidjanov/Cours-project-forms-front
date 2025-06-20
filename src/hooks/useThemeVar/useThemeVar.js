@@ -21,6 +21,8 @@ export const useThemeVar = () => {
 		btnLinkColor: isThemeLight ? loginAuthStyles.btnLinkColorLightTheme : loginAuthStyles.btnLinkColorDarkTheme,
 		btnLinkUnderlineBgColor: isThemeLight ? loginAuthStyles.btnLinkUnderLineBgColorLithTheme : loginAuthStyles.btnLinkUnderLineBgColorDarkTheme,
 		formBoxShadow: isThemeLight ? loginAuthStyles.formBoxShadowLightTheme : loginAuthStyles.formBoxShadowDarkTheme,
+		errorMessages: isThemeLight ? loginAuthStyles.errorsMessagesLigthTheme : loginAuthStyles.errorsMessagesDarkTheme,
+		submitLoader: isThemeLight ? loginAuthStyles.submitBtnLoaderBorderTopColorLigthTheme : loginAuthStyles.submitBtnLoaderBorderTopColorDarkTheme,
 	};
 
 	return { root, loginAuthPage };

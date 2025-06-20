@@ -37,3 +37,19 @@
 .formBoxShadowDarkTheme {
 	box-shadow: 2px 5px 30px #000;
 }
+
+.errorsMessagesLigthTheme {
+	color: #f00;
+}
+
+.errorsMessagesDarkTheme {
+	color: var(--dark-theme-accent-bg-color);
+}
+
+.submitBtnLoaderBorderTopColorLigthTheme {
+	border-top-color: var(--main-bg-color);
+}
+
+.submitBtnLoaderBorderTopColorDarkTheme {
+	border-top-color: var(--secondary-bg-color);
+}

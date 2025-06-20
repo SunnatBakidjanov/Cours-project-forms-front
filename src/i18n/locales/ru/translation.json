@@ -26,6 +26,11 @@
 			"passwordPlaceholder": "Введите пароль",
 			"repeatPasswordPlaceholder": "Повторите пароль"
 		},
+		"errors": {
+			"repeatPassword": "Пароли не совпадают",
+			"emailInvalidFormat": "Неверный формат электронной почты",
+			"emailAlreadyExists": "Электронная почта уже существует"
+		},
 		"linkBtn": {
 			"text": "Уже есть аккаунт?",
 			"button": "Войти"

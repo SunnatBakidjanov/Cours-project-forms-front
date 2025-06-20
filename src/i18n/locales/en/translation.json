@@ -26,6 +26,11 @@
 			"passwordPlaceholder": "Enter password",
 			"repeatPasswordPlaceholder": "Repeat password"
 		},
+		"errors": {
+			"repeatPassword": "Passwords do not match",
+			"emailInvalidFormat": "Invalid e-mail format",
+			"emailAlreadyExists": "E-mail already exists"
+		},
 		"linkBtn": {
 			"text": "Already have an account?",
 			"button": "Login"

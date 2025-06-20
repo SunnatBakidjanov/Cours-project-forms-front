@@ -11,10 +11,15 @@ const initialState = {
 	email: '',
 	password: '',
 	repeatPassword: '',
+	isLoading: false,
+	errors: {},
 };
 
 const ACTIONS = {
 	SET_FIELD: 'SET_FIELD',
+	SET_ERRORS: 'SET_ERRORS',
+	SET_LOADING: 'SET_LOADING',
+	CLEAR_FORM: 'CLEAR_FORM',
 };
 
 function reducer(state, { type, field, payload }) {
@@ -24,6 +29,22 @@ function reducer(state, { type, field, payload }) {
 				...state,
 				[field]: payload,
 			};
+		case ACTIONS.SET_ERRORS:
+			return {
+				...state,
+				errors: payload,
+			};
+		case ACTIONS.SET_LOADING:
+			return {
+				...state,
+				isLoading: payload,
+			};
+		case ACTIONS.CLEAR_FORM:
+			return {
+				...initialState,
+			};
+		default:
+			return state;
 	}
 }
 
@@ -32,18 +53,18 @@ export const useAuthFrom = () => {
 	const { currentLang } = changeLanguage();
 	const { isThemeLight } = use(ThemeContext);
 
-	console.log(isThemeLight);
-
 	const setField = (field, value) => {
 		dispatch({ type: ACTIONS.SET_FIELD, field, payload: value });
 	};
 
 	const validate = () => {
 		const errors = {};
-		if (!/\S+@\S+\.\S+/.test(state.email)) errors.email = 'Invalid email format';
-		if (state.password.length < 6) errors.password = 'Invalid password';
-		if (state.password !== state.repeatPassword) errors.repeatPassword = 'Passwords do not match';
-
+		if (!/\S+@\S+\.\S+/.test(state.email)) {
+			errors.email = ['EMAIL_INVALID_FORMAT'];
+		}
+		if (state.password !== state.repeatPassword) {
+			errors.repeatPassword = ['PASSWORDS_DO_NOT_MATCH'];
+		}
 		return errors;
 	};
 
@@ -51,8 +72,11 @@ export const useAuthFrom = () => {
 		const errors = validate();
 
 		if (Object.keys(errors).length > 0) {
+			dispatch({ type: ACTIONS.SET_ERRORS, payload: errors });
 			return { success: false };
 		}
+
+		dispatch({ type: ACTIONS.SET_LOADING, payload: true });
 
 		try {
 			const res = await axios.post(`${API_URL}/api/register`, {
@@ -64,9 +88,15 @@ export const useAuthFrom = () => {
 				theme: isThemeLight,
 			});
 
-			return { success: true, message: res.data.message };
+			dispatch({ type: ACTIONS.CLEAR_FORM });
+
+			return { success: true };
 		} catch (err) {
+			const errors = err.response?.data?.errors || {};
+			dispatch({ type: ACTIONS.SET_ERRORS, payload: errors });
 			return { success: false };
+		} finally {
+			dispatch({ type: ACTIONS.SET_LOADING, payload: false });
 		}
 	};
 
