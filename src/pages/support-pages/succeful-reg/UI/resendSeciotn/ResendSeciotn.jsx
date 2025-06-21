@@ -17,8 +17,8 @@ export const ResendSection = ({ email }) => {
 	const { timer, isActive, start } = useTimer();
 
 	const resendMail = async () => {
-		await handleResend();
-		if (!isError) start();
+		const success = await handleResend();
+		if (success) start();
 	};
 
 	return (
