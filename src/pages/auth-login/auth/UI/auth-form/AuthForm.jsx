@@ -7,7 +7,7 @@ import { MainTitle } from '../../../../../UI/main-title/MainTitle';
 import { Paragraph } from '../../../UI/paragraph/Paragrph';
 import { InputImg } from '../../../UI/input-img/InputImg';
 import { PasswordLabel } from '../../../UI/password-label/PasswordLabel';
-import { SubmitBtnLoader } from '../../../UI/submit-btn-loader/SubmitBtnLoader';
+import { SubmitBtnLoader } from '../../../../../UI/submit-btn-loader/SubmitBtnLoader';
 
 import styles from '../../../styles/auth-login-form.module.scss';
 import classNames from 'classnames';
@@ -20,7 +20,7 @@ export const AuthForm = () => {
 	const { root, loginAuthPage } = useThemeVar();
 
 	const { state, setField, onSubmit } = useAuthFrom();
-	const { name, surname, email, password, repeatPassword, errors, isLoading } = state;
+	const { name, surname, email, password, repeatPassword, errors, isLoading, successfule } = state;
 
 	return (
 		<div className={classNames(styles.container, loginAuthPage.formBoxShadow)}>
@@ -79,6 +79,8 @@ export const AuthForm = () => {
 
 					{errors.repeatPassword?.includes('PASSWORDS_DO_NOT_MATCH') && <Paragraph styleUsePlace="formError" text={t(`authPage.errors.repeatPassword`)} className={loginAuthPage.errorMessages} />}
 				</div>
+
+				{successfule && <Paragraph text={t('authPage.successMessage')} styleUsePlace="succefulMessage" className={loginAuthPage.successMessage} />}
 
 				<Button text={isLoading ? '' : t('authPage.submitButton')} type="submit" className={classNames(styles.button, loginAuthPage.formBtnBgColor, root.reverseFontColor)} disabled={isLoading}>
 					{isLoading ? <SubmitBtnLoader className={loginAuthPage.submitLoader} /> : undefined}

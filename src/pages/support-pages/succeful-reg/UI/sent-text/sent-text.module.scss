@@ -1,0 +1,12 @@
+.text {
+	margin-bottom: 2.5rem;
+	line-height: 115%;
+	font-size: 1.25rem;
+	transition: color var(--change-theme-transition) ease-out;
+}
+
+.accentText {
+	transition: color var(--change-theme-transition) ease-out;
+	font-weight: 600;
+	font-size: 1.3rem;
+}

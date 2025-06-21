@@ -19,7 +19,7 @@ export const PasswordLabel = ({ placeholderText, name, underlineThemeClassName, 
 
 	return (
 		<label className={styles.label}>
-			<input className={styles.input} maxLength={255} type={inputType} name={name} placeholder={placeholderText} required value={value} onChange={onChange} />
+			<input className={styles.input} maxLength={255} type={inputType} name={name} placeholder={placeholderText} required value={value} onChange={onChange} autoComplete="new-password" />
 			<span className={underlineThemeClassName}></span>
 			<Button
 				onClick={() => {

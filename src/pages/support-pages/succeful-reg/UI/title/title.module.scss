@@ -1,0 +1,14 @@
+.title {
+	margin-bottom: 1rem;
+	font-family: Furore, sans-serif;
+	font-weight: 400;
+	line-height: 115%;
+	font-size: 3.2rem;
+	letter-spacing: 1px;
+	transition: color var(--change-theme-transition) ease-out;
+}
+
+.titleName {
+	transition: color var(--change-theme-transition) ease-out;
+	font-size: 2.8rem;
+}

@@ -1,0 +1,16 @@
+.list {
+	display: flex;
+	flex-direction: column;
+	padding: 0 1rem 1rem 0;
+	width: fit-content;
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	transition: border-bottom-color var(--change-theme-transition) ease-out;
+	row-gap: 0.5rem;
+}
+
+.item {
+	transition: color var(--change-theme-transition) ease-out;
+	line-height: 100%;
+	font-size: 1.1em;
+}

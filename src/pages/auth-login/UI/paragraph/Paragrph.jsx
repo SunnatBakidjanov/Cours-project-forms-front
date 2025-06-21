@@ -7,6 +7,7 @@ export const Paragraph = ({ text, styleUsePlace, className }) => {
 			className={classNames(className, styles.root, {
 				[styles.formText]: styleUsePlace === 'formText',
 				[styles.formError]: styleUsePlace === 'formError',
+				[styles.succefulMessage]: styleUsePlace === 'succefulMessage',
 				[styles.linkBtn]: styleUsePlace === 'linkBtn',
 			})}
 		>

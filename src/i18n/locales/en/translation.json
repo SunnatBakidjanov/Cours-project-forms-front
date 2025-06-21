@@ -31,10 +31,25 @@
 			"emailInvalidFormat": "Invalid e-mail format",
 			"emailAlreadyExists": "E-mail already exists"
 		},
+		"successMessage": "Registration successful!",
 		"linkBtn": {
 			"text": "Already have an account?",
 			"button": "Login"
 		}
+	},
+	"mailResentPage": {
+		"title": "Hello,",
+		"emailSentText": "We have sent an email to <0>{{email}}</0>. To verify your identity, please follow the link in the email to continue registration. The link will be valid for <1>one hour</1>.",
+		"subtitle": "Didn't receive the letter?",
+		"checkList": [
+			"Check your spam folder - sometimes the email may end up there.",
+			"Sometimes it may take a few minutes for the email to arrive.",
+			"Make sure you entered your email address correctly.",
+			"If you still haven't received the email, use the resend button below."
+		],
+		"button": "Send again",
+		"timerText": "Retry available in {{timer}} sec.",
+		"errMessage": "Error, please try again"
 	},
 	"loginPage": {
 		"title": "Login to account",

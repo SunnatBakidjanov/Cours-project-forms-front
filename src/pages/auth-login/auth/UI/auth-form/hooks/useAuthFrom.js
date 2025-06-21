@@ -1,6 +1,7 @@
-import { useReducer, use } from 'react';
+import { useReducer, use, useCallback } from 'react';
 import { changeLanguage } from '../../../../../../UI/translaitor-button/scripts/changeLanguage';
 import { ThemeContext } from '../../../../../../components/theme';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -12,13 +13,17 @@ const initialState = {
 	password: '',
 	repeatPassword: '',
 	isLoading: false,
+	successfule: false,
 	errors: {},
 };
+
+const RESENT_TIMER = 2000;
 
 const ACTIONS = {
 	SET_FIELD: 'SET_FIELD',
 	SET_ERRORS: 'SET_ERRORS',
 	SET_LOADING: 'SET_LOADING',
+	SHOW_SUCCESS_MESSAGE: 'SHOW_SUCCESS_MESSAGE',
 	CLEAR_FORM: 'CLEAR_FORM',
 };
 
@@ -42,6 +47,7 @@ function reducer(state, { type, field, payload }) {
 		case ACTIONS.CLEAR_FORM:
 			return {
 				...initialState,
+				successfule: true,
 			};
 		default:
 			return state;
@@ -52,6 +58,7 @@ export const useAuthFrom = () => {
 	const [state, dispatch] = useReducer(reducer, initialState);
 	const { currentLang } = changeLanguage();
 	const { isThemeLight } = use(ThemeContext);
+	const navigate = useNavigate();
 
 	const setField = (field, value) => {
 		dispatch({ type: ACTIONS.SET_FIELD, field, payload: value });
@@ -68,7 +75,7 @@ export const useAuthFrom = () => {
 		return errors;
 	};
 
-	const handleSubmit = async () => {
+	const handleSubmit = useCallback(async () => {
 		const errors = validate();
 
 		if (Object.keys(errors).length > 0) {
@@ -88,6 +95,16 @@ export const useAuthFrom = () => {
 				theme: isThemeLight,
 			});
 
+			setTimeout(() => {
+				navigate('/email-sent', {
+					state: {
+						name: state.name,
+						surname: state.surname,
+						email: state.email,
+					},
+				});
+			}, RESENT_TIMER);
+
 			dispatch({ type: ACTIONS.CLEAR_FORM });
 
 			return { success: true };
@@ -98,7 +115,7 @@ export const useAuthFrom = () => {
 		} finally {
 			dispatch({ type: ACTIONS.SET_LOADING, payload: false });
 		}
-	};
+	}, [state, dispatch, navigate, validate, currentLang, isThemeLight]);
 
 	const onSubmit = async e => {
 		e.preventDefault();

@@ -3,6 +3,7 @@ import { use } from 'react';
 
 import styles from './theme-var.module.scss';
 import loginAuthStyles from './login-auth-page.module.scss';
+import emailSentStyles from './emeail-sent-page.module.scss';
 
 export const useThemeVar = () => {
 	const { isThemeLight } = use(ThemeContext);
@@ -12,7 +13,14 @@ export const useThemeVar = () => {
 		reverseFontColor: isThemeLight ? styles.colorDarkTheme : styles.colorLightTheme,
 		bgColor: isThemeLight ? styles.bgColorLightTheme : styles.bgColorDarkTheme,
 		reverseBgColor: isThemeLight ? styles.bgColorDarkTheme : styles.bgColorLightTheme,
+		accentColor: isThemeLight ? styles.accenttColorLithTheme : styles.accentColorDarkTheme,
+		btnSubmit: isThemeLight ? styles.btnSubmitBgColorLithTheme : styles.btnSubmitLineBgColorDarkTheme,
 		toolbarBtnBgColor: isThemeLight ? styles.toolbarBtnBgLightTheme : styles.toolbarBtnBgDarkTheme,
+		errorMessage: isThemeLight ? styles.errorsMessagesLigthTheme : styles.errorsMessagesDarkTheme,
+	};
+
+	const emeailSentPage = {
+		checkListUnderline: isThemeLight ? emailSentStyles.checklistUnderLineLigthTheme : emailSentStyles.checklistUnderLineDarkTheme,
 	};
 
 	const loginAuthPage = {
@@ -23,7 +31,8 @@ export const useThemeVar = () => {
 		formBoxShadow: isThemeLight ? loginAuthStyles.formBoxShadowLightTheme : loginAuthStyles.formBoxShadowDarkTheme,
 		errorMessages: isThemeLight ? loginAuthStyles.errorsMessagesLigthTheme : loginAuthStyles.errorsMessagesDarkTheme,
 		submitLoader: isThemeLight ? loginAuthStyles.submitBtnLoaderBorderTopColorLigthTheme : loginAuthStyles.submitBtnLoaderBorderTopColorDarkTheme,
+		successMessage: isThemeLight ? loginAuthStyles.succefulMessageColorLightTheme : loginAuthStyles.succefulMessageColorDarkTheme,
 	};
 
-	return { root, loginAuthPage };
+	return { root, loginAuthPage, emeailSentPage };
 };

@@ -1,0 +1,20 @@
+.section {
+	font-family: 'Roboto Flex', sans-serif;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	padding-bottom: 4rem;
+	max-width: 1440px;
+}
+
+.toolbar {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 5rem;
+	padding-top: 1.5rem;
+	width: 100%;
+	column-gap: 0.7rem;
+}

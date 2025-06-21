@@ -14,10 +14,34 @@
 	background-color: var(--secondary-bg-color);
 }
 
+.accenttColorLithTheme {
+	color: var(--ligth-theme-accent-bg-color);
+}
+
+.accentColorDarkTheme {
+	color: var(--dark-theme-accent-bg-color);
+}
+
 .toolbarBtnBgLightTheme {
 	background-color: var(--main-accent-color);
 }
 
 .toolbarBtnBgDarkTheme {
 	background-color: var(--secondary-accent-color);
+}
+
+.errorsMessagesLigthTheme {
+	color: #f00;
+}
+
+.errorsMessagesDarkTheme {
+	color: var(--dark-theme-accent-bg-color);
+}
+
+.btnSubmitBgColorLithTheme {
+	background-color: var(--ligth-theme-accent-bg-color);
+}
+
+.btnSubmitLineBgColorDarkTheme {
+	background-color: var(--dark-theme-accent-bg-color);
 }
