@@ -1,4 +1,6 @@
-import { useReducer, useCallback } from 'react';
+import { useReducer, useCallback, use } from 'react';
+import { changeLanguage } from '../../../../UI/translaitor-button/scripts/changeLanguage';
+import { ThemeContext } from '../../../../components/theme';
 import axios from 'axios';
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -29,13 +31,19 @@ function reducer(state, action) {
 
 export const useResendMail = email => {
 	const [state, dispatch] = useReducer(reducer, initialState);
+	const { currentLang } = changeLanguage();
+	const { isThemeLight } = use(ThemeContext);
 
 	const handleResend = useCallback(async () => {
 		dispatch({ type: ACTIONS.RESET_ERROR });
 		dispatch({ type: ACTIONS.SET_LOADING, payload: true });
 
 		try {
-			await axios.post(`${API_URL}/api/resend-verification`, { email });
+			await axios.post(`${API_URL}/api/resend-verification`, {
+				email,
+				lang: currentLang,
+				theme: isThemeLight,
+			});
 		} catch (err) {
 			console.error(err);
 			dispatch({ type: ACTIONS.SET_ERROR, payload: true });
