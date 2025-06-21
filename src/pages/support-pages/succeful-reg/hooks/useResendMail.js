@@ -44,9 +44,11 @@ export const useResendMail = email => {
 				lang: currentLang,
 				theme: isThemeLight,
 			});
+			return true;
 		} catch (err) {
 			console.error(err);
 			dispatch({ type: ACTIONS.SET_ERROR, payload: true });
+			return false;
 		} finally {
 			dispatch({ type: ACTIONS.SET_LOADING, payload: false });
 		}

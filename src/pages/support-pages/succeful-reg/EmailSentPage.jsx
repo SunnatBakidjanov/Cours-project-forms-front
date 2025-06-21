@@ -6,6 +6,7 @@ import { MailCheckList } from './UI/mail-check-list/MailCheckList ';
 import { ChangeThemeButton } from '../../../UI/change-theme-button/ChangeThemeButton';
 import { TranslationButton } from '../../../UI/translaitor-button/TranslationButton';
 import { ResendSection } from './UI/resendSeciotn/ResendSeciotn';
+import { InncorectData } from './UI/inccorect-date/inncorectData';
 
 import styles from './email-sent.module.scss';
 import classNames from 'classnames';
@@ -31,6 +32,8 @@ export const EmailSentPage = ({ name, surname, email }) => {
 					<MailCheckList />
 
 					<ResendSection email={email} />
+
+					<InncorectData />
 				</div>
 			</div>
 		</section>

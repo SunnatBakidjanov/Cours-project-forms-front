@@ -85,6 +85,16 @@ export const useAuthFrom = () => {
 
 		dispatch({ type: ACTIONS.SET_LOADING, payload: true });
 
+		setTimeout(() => {
+			navigate('/email-sent', {
+				state: {
+					name: state.name,
+					surname: state.surname,
+					email: state.email,
+				},
+			});
+		}, RESENT_TIMER);
+
 		try {
 			const res = await axios.post(`${API_URL}/api/register`, {
 				name: state.name,
@@ -94,16 +104,6 @@ export const useAuthFrom = () => {
 				lang: currentLang,
 				theme: isThemeLight,
 			});
-
-			setTimeout(() => {
-				navigate('/email-sent', {
-					state: {
-						name: state.name,
-						surname: state.surname,
-						email: state.email,
-					},
-				});
-			}, RESENT_TIMER);
 
 			dispatch({ type: ACTIONS.CLEAR_FORM });
 

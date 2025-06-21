@@ -49,7 +49,12 @@
 		],
 		"button": "Send again",
 		"timerText": "Retry available in {{timer}} sec.",
-		"errMessage": "Error, please try again"
+		"errMessage": "Error, please try again",
+		"inccorectData": {
+			"title": "If you entered the data incorrectly...",
+			"text": "Please re-register so that we can successfully create your account.",
+			"button": "Create an account"
+		}
 	},
 	"loginPage": {
 		"title": "Login to account",
