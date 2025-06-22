@@ -34,6 +34,7 @@
 		},
 		"successMessage": "Registration successful!",
 		"updatedDataMessage": "Data updated",
+		"resendingMessage": "Data updated, message resent",
 		"linkBtn": {
 			"text": "Already have an account?",
 			"button": "Login"

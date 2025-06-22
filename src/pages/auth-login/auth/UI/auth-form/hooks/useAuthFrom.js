@@ -25,7 +25,7 @@ const ACTIONS = {
 	SET_ERRORS: 'SET_ERRORS',
 	SET_UNHANDLED_ERROR: 'SET_UNHANDLED_ERROR',
 	SET_LOADING: 'SET_LOADING',
-	SHOW_SUCCESS_MESSAGE: 'SHOW_SUCCESS_MESSAGE',
+	SET_SUCCESSFUL: 'SET_SUCCESSFUL',
 	CLEAR_FORM: 'CLEAR_FORM',
 };
 
@@ -46,6 +46,11 @@ function reducer(state, { type, field, payload }) {
 				...state,
 				unhandledError: payload,
 			};
+		case ACTIONS.SET_SUCCESSFUL:
+			return {
+				...state,
+				successful: payload,
+			};
 		case ACTIONS.SET_LOADING:
 			return {
 				...state,
@@ -53,8 +58,14 @@ function reducer(state, { type, field, payload }) {
 			};
 		case ACTIONS.CLEAR_FORM:
 			return {
-				...initialState,
-				successful: payload,
+				...state,
+				name: '',
+				surname: '',
+				email: '',
+				password: '',
+				repeatPassword: '',
+				errors: {},
+				unhandledError: false,
 			};
 		default:
 			return state;
@@ -85,8 +96,6 @@ export const useAuthFrom = () => {
 	};
 
 	const redirect = () => {
-		console.log('redirected');
-
 		return setTimeout(() => {
 			navigate('/email-sent', {
 				state: {
@@ -107,7 +116,6 @@ export const useAuthFrom = () => {
 		}
 
 		dispatch({ type: ACTIONS.SET_LOADING, payload: true });
-		redirect();
 
 		try {
 			const res = await axios.post(`${API_URL}/api/register`, {
@@ -119,11 +127,8 @@ export const useAuthFrom = () => {
 				theme: isThemeLight,
 			});
 
-			if (res.data.status === 'pending') {
-				dispatch({ type: ACTIONS.CLEAR_FORM, payload: res?.data?.successful?.updatedDataMessage || {} });
-			} else {
-				dispatch({ type: ACTIONS.CLEAR_FORM, payload: res?.data?.successful?.message || {} });
-			}
+			dispatch({ type: ACTIONS.SET_SUCCESSFUL, payload: res?.data?.successful || {} });
+			dispatch({ type: ACTIONS.CLEAR_FORM });
 
 			redirect();
 

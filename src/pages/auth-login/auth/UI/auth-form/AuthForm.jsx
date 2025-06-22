@@ -81,7 +81,8 @@ export const AuthForm = () => {
 				</div>
 
 				{successful?.message?.includes('SUCCESSFUL_MESSAGE') && <Paragraph text={t('authPage.successMessage')} styleUsePlace="succefulMessage" className={loginAuthPage.successMessage} />}
-				{successful?.updatedDataMessage?.includes('SUCCESSFUL_MESSAGE') && <Paragraph text={t('authPage.updatedDataMessage')} styleUsePlace="succefulMessage" className={loginAuthPage.successMessage} />}
+				{successful?.message?.includes('UPDATED_DATA') && <Paragraph text={t('authPage.updatedDataMessage')} styleUsePlace="succefulMessage" className={loginAuthPage.successMessage} />}
+				{successful?.message?.includes('RESENDING_MESSAGE') && <Paragraph text={t('authPage.resendingMessage')} styleUsePlace="succefulMessage" className={loginAuthPage.successMessage} />}
 
 				{unhandledError && <Paragraph text={t('unhandledError')} styleUsePlace="succefulMessage" className={loginAuthPage.errorMessages} />}
 
