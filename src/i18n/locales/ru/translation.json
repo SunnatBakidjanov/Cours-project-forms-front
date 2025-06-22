@@ -33,6 +33,7 @@
 			"emailAlreadyExists": "Электронная почта уже существует"
 		},
 		"successMessage": "Регистрация прошла успешно!",
+		"updatedDataMessage": "Данные обновлены",
 		"linkBtn": {
 			"text": "Уже есть аккаунт?",
 			"button": "Войти"

@@ -13,7 +13,7 @@ const initialState = {
 	password: '',
 	repeatPassword: '',
 	isLoading: false,
-	successfule: false,
+	successful: {},
 	unhandledError: false,
 	errors: {},
 };
@@ -54,7 +54,7 @@ function reducer(state, { type, field, payload }) {
 		case ACTIONS.CLEAR_FORM:
 			return {
 				...initialState,
-				successfule: true,
+				successful: payload,
 			};
 		default:
 			return state;
@@ -84,6 +84,20 @@ export const useAuthFrom = () => {
 		return errors;
 	};
 
+	const redirect = () => {
+		console.log('redirected');
+
+		return setTimeout(() => {
+			navigate('/email-sent', {
+				state: {
+					name: state.name,
+					surname: state.surname,
+					email: state.email,
+				},
+			});
+		}, RESENT_TIMER);
+	};
+
 	const handleSubmit = useCallback(async () => {
 		const errors = validate();
 
@@ -93,6 +107,7 @@ export const useAuthFrom = () => {
 		}
 
 		dispatch({ type: ACTIONS.SET_LOADING, payload: true });
+		redirect();
 
 		try {
 			const res = await axios.post(`${API_URL}/api/register`, {
@@ -104,28 +119,25 @@ export const useAuthFrom = () => {
 				theme: isThemeLight,
 			});
 
-			setTimeout(() => {
-				navigate('/email-sent', {
-					state: {
-						name: state.name,
-						surname: state.surname,
-						email: state.email,
-					},
-				});
-			}, RESENT_TIMER);
+			if (res.data.status === 'pending') {
+				dispatch({ type: ACTIONS.CLEAR_FORM, payload: res?.data?.successful?.updatedDataMessage || {} });
+			} else {
+				dispatch({ type: ACTIONS.CLEAR_FORM, payload: res?.data?.successful?.message || {} });
+			}
 
-			dispatch({ type: ACTIONS.CLEAR_FORM });
+			redirect();
 
 			return { success: true };
 		} catch (err) {
 			const errors = err.response?.data?.errors || {};
+
 			dispatch({ type: ACTIONS.SET_ERRORS, payload: errors });
 			dispatch({ type: ACTIONS.SET_UNHANDLED_ERROR, payload: true });
 			return { success: false };
 		} finally {
 			dispatch({ type: ACTIONS.SET_LOADING, payload: false });
 		}
-	}, [state, dispatch, navigate, validate, currentLang, isThemeLight]);
+	}, [state, dispatch, navigate, validate, redirect, currentLang, isThemeLight]);
 
 	const onSubmit = async e => {
 		e.preventDefault();

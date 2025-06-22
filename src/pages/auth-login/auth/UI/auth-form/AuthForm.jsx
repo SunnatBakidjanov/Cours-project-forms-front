@@ -20,7 +20,7 @@ export const AuthForm = () => {
 	const { root, loginAuthPage } = useThemeVar();
 
 	const { state, setField, onSubmit } = useAuthFrom();
-	const { name, surname, email, password, repeatPassword, errors, isLoading, successfule, unhandledError } = state;
+	const { name, surname, email, password, repeatPassword, errors, isLoading, successful, unhandledError } = state;
 
 	return (
 		<div className={classNames(styles.container, loginAuthPage.formBoxShadow)}>
@@ -80,7 +80,8 @@ export const AuthForm = () => {
 					{errors?.repeatPassword?.includes('PASSWORDS_DO_NOT_MATCH') && <Paragraph styleUsePlace="formError" text={t(`authPage.errors.repeatPassword`)} className={loginAuthPage.errorMessages} />}
 				</div>
 
-				{successfule && <Paragraph text={t('authPage.successMessage')} styleUsePlace="succefulMessage" className={loginAuthPage.successMessage} />}
+				{successful?.message?.includes('SUCCESSFUL_MESSAGE') && <Paragraph text={t('authPage.successMessage')} styleUsePlace="succefulMessage" className={loginAuthPage.successMessage} />}
+				{successful?.updatedDataMessage?.includes('SUCCESSFUL_MESSAGE') && <Paragraph text={t('authPage.updatedDataMessage')} styleUsePlace="succefulMessage" className={loginAuthPage.successMessage} />}
 
 				{unhandledError && <Paragraph text={t('unhandledError')} styleUsePlace="succefulMessage" className={loginAuthPage.errorMessages} />}
 

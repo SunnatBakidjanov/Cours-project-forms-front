@@ -33,6 +33,7 @@
 			"emailAlreadyExists": "E-mail already exists"
 		},
 		"successMessage": "Registration successful!",
+		"updatedDataMessage": "Data updated",
 		"linkBtn": {
 			"text": "Already have an account?",
 			"button": "Login"
