@@ -6,9 +6,51 @@
 	font-size: 3.2rem;
 	letter-spacing: 1px;
 	transition: color var(--change-theme-transition) ease-out;
+
+	@media (width <= 1440px) {
+		font-size: 3rem;
+	}
+
+	@media (width <= 1024px) {
+		font-size: 2.8rem;
+	}
+
+	@media (width <= 768px) {
+		font-size: 2.2rem;
+	}
+
+	@media (width <= 550px) {
+		font-size: 1.8rem;
+	}
+
+	@media (width <= 425px) {
+		margin-bottom: 0.9rem;
+		font-size: 1.5rem;
+	}
 }
 
 .titleName {
 	transition: color var(--change-theme-transition) ease-out;
-	font-size: 2.8rem;
+	font-size: 2.5rem;
+
+	@media (width <= 1440px) {
+		font-size: 2.4rem;
+	}
+
+	@media (width <= 1024px) {
+		font-size: 2.2rem;
+	}
+
+	@media (width <= 768px) {
+		font-size: 1.8rem;
+	}
+
+	@media (width <= 550px) {
+		line-height: 100%;
+		font-size: 1.3rem;
+	}
+
+	@media (width <= 425px) {
+		font-size: 1.2rem;
+	}
 }

@@ -3,10 +3,56 @@
 	line-height: 115%;
 	font-size: 1.25rem;
 	transition: color var(--change-theme-transition) ease-out;
+
+	@media (width <= 1440px) {
+		margin-bottom: 2.4rem;
+		font-size: 1.2rem;
+	}
+
+	@media (width <= 1024px) {
+		margin-bottom: 2.3rem;
+		font-size: 1.1rem;
+	}
+
+	@media (width <= 768px) {
+		margin-bottom: 2.2rem;
+		font-size: 1rem;
+	}
+
+	@media (width <= 550px) {
+		margin-bottom: 2rem;
+		font-size: 0.9rem;
+	}
+
+	@media (width <= 425px) {
+		margin-bottom: 1.8rem;
+		line-height: 125%;
+		font-size: 0.85rem;
+	}
 }
 
 .accentText {
 	transition: color var(--change-theme-transition) ease-out;
 	font-weight: 600;
 	font-size: 1.3rem;
+
+	@media (width <= 1440px) {
+		font-size: 1.25rem;
+	}
+
+	@media (width <= 1024px) {
+		font-size: 1.15rem;
+	}
+
+	@media (width <= 768px) {
+		font-size: 1.05rem;
+	}
+
+	@media (width <= 550px) {
+		font-size: 0.95rem;
+	}
+
+	@media (width <= 425px) {
+		font-size: 0.9rem;
+	}
 }

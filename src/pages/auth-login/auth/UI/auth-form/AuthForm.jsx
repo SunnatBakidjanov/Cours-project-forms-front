@@ -20,7 +20,7 @@ export const AuthForm = () => {
 	const { root, loginAuthPage } = useThemeVar();
 
 	const { state, setField, onSubmit } = useAuthFrom();
-	const { name, surname, email, password, repeatPassword, errors, isLoading, successfule } = state;
+	const { name, surname, email, password, repeatPassword, errors, isLoading, successfule, unhandledError } = state;
 
 	return (
 		<div className={classNames(styles.container, loginAuthPage.formBoxShadow)}>
@@ -56,8 +56,8 @@ export const AuthForm = () => {
 						<InputImg src={emailImg} styleUsePlace="text" />
 					</label>
 
-					{errors.email?.includes('EMAIL_ALREADY_EXISTS') && <Paragraph styleUsePlace="formError" text={t('authPage.errors.emailAlreadyExists')} className={loginAuthPage.errorMessages} />}
-					{errors.email?.includes('EMAIL_INVALID_FORMAT') && <Paragraph styleUsePlace="formError" text={t('authPage.errors.emailInvalidFormat')} className={loginAuthPage.errorMessages} />}
+					{errors?.email?.includes('EMAIL_ALREADY_EXISTS') && <Paragraph styleUsePlace="formError" text={t('authPage.errors.emailAlreadyExists')} className={loginAuthPage.errorMessages} />}
+					{errors?.email?.includes('EMAIL_INVALID_FORMAT') && <Paragraph styleUsePlace="formError" text={t('authPage.errors.emailInvalidFormat')} className={loginAuthPage.errorMessages} />}
 				</div>
 
 				<div className={styles.formBlock}>
@@ -77,10 +77,12 @@ export const AuthForm = () => {
 						onChange={e => setField('repeatPassword', e.target.value)}
 					/>
 
-					{errors.repeatPassword?.includes('PASSWORDS_DO_NOT_MATCH') && <Paragraph styleUsePlace="formError" text={t(`authPage.errors.repeatPassword`)} className={loginAuthPage.errorMessages} />}
+					{errors?.repeatPassword?.includes('PASSWORDS_DO_NOT_MATCH') && <Paragraph styleUsePlace="formError" text={t(`authPage.errors.repeatPassword`)} className={loginAuthPage.errorMessages} />}
 				</div>
 
 				{successfule && <Paragraph text={t('authPage.successMessage')} styleUsePlace="succefulMessage" className={loginAuthPage.successMessage} />}
+
+				{unhandledError && <Paragraph text={t('unhandledError')} styleUsePlace="succefulMessage" className={loginAuthPage.errorMessages} />}
 
 				<Button text={isLoading ? '' : t('authPage.submitButton')} type="submit" className={classNames(styles.button, loginAuthPage.formBtnBgColor, root.reverseFontColor)} disabled={isLoading}>
 					{isLoading ? <SubmitBtnLoader className={loginAuthPage.submitLoader} /> : undefined}

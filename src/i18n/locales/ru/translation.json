@@ -1,5 +1,6 @@
 {
 	"translationBtn": "EN",
+	"unhandledError": "Ошибка, попробуйте еще раз",
 	"technikalWorkPage": {
 		"title": "Ведутся технические работы",
 		"countDownText": "До окончания технически работ осталось",

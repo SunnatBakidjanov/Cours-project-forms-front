@@ -52,7 +52,7 @@ export const useResendMail = email => {
 		} finally {
 			dispatch({ type: ACTIONS.SET_LOADING, payload: false });
 		}
-	}, [email]);
+	}, [email, currentLang, isThemeLight, dispatch]);
 
 	return {
 		state,

@@ -14,14 +14,16 @@ const initialState = {
 	repeatPassword: '',
 	isLoading: false,
 	successfule: false,
+	unhandledError: false,
 	errors: {},
 };
 
-const RESENT_TIMER = 2000;
+const RESENT_TIMER = 2500;
 
 const ACTIONS = {
 	SET_FIELD: 'SET_FIELD',
 	SET_ERRORS: 'SET_ERRORS',
+	SET_UNHANDLED_ERROR: 'SET_UNHANDLED_ERROR',
 	SET_LOADING: 'SET_LOADING',
 	SHOW_SUCCESS_MESSAGE: 'SHOW_SUCCESS_MESSAGE',
 	CLEAR_FORM: 'CLEAR_FORM',
@@ -38,6 +40,11 @@ function reducer(state, { type, field, payload }) {
 			return {
 				...state,
 				errors: payload,
+			};
+		case ACTIONS.SET_UNHANDLED_ERROR:
+			return {
+				...state,
+				unhandledError: payload,
 			};
 		case ACTIONS.SET_LOADING:
 			return {
@@ -61,6 +68,8 @@ export const useAuthFrom = () => {
 	const navigate = useNavigate();
 
 	const setField = (field, value) => {
+		dispatch({ type: ACTIONS.SET_ERRORS, payload: {} });
+		dispatch({ type: ACTIONS.SET_UNHANDLED_ERROR, payload: false });
 		dispatch({ type: ACTIONS.SET_FIELD, field, payload: value });
 	};
 
@@ -85,16 +94,6 @@ export const useAuthFrom = () => {
 
 		dispatch({ type: ACTIONS.SET_LOADING, payload: true });
 
-		setTimeout(() => {
-			navigate('/email-sent', {
-				state: {
-					name: state.name,
-					surname: state.surname,
-					email: state.email,
-				},
-			});
-		}, RESENT_TIMER);
-
 		try {
 			const res = await axios.post(`${API_URL}/api/register`, {
 				name: state.name,
@@ -105,12 +104,23 @@ export const useAuthFrom = () => {
 				theme: isThemeLight,
 			});
 
+			setTimeout(() => {
+				navigate('/email-sent', {
+					state: {
+						name: state.name,
+						surname: state.surname,
+						email: state.email,
+					},
+				});
+			}, RESENT_TIMER);
+
 			dispatch({ type: ACTIONS.CLEAR_FORM });
 
 			return { success: true };
 		} catch (err) {
 			const errors = err.response?.data?.errors || {};
 			dispatch({ type: ACTIONS.SET_ERRORS, payload: errors });
+			dispatch({ type: ACTIONS.SET_UNHANDLED_ERROR, payload: true });
 			return { success: false };
 		} finally {
 			dispatch({ type: ACTIONS.SET_LOADING, payload: false });

@@ -10,6 +10,7 @@ export const EmailSentWrapper = () => {
 	useEffect(() => {
 		if (state?.email) {
 			sessionStorage.setItem('sent-state', JSON.stringify(state));
+
 			setEmailState(state);
 		} else {
 			const savedState = sessionStorage.getItem('sent-state');
@@ -23,5 +24,5 @@ export const EmailSentWrapper = () => {
 
 	if (!emailState) return null;
 
-	return <EmailSentPage name={emailState.name} surname={emailState.surname} email={emailState.email} />;
+	return <EmailSentPage name={emailState?.name} surname={emailState?.surname} email={emailState?.email} />;
 };

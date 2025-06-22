@@ -7,10 +7,34 @@
 	border-bottom-style: solid;
 	transition: border-bottom-color var(--change-theme-transition) ease-out;
 	row-gap: 0.5rem;
+
+	@media (width <= 550px) {
+		row-gap: 0.6rem;
+	}
 }
 
 .item {
 	transition: color var(--change-theme-transition) ease-out;
-	line-height: 100%;
+	line-height: 125%;
 	font-size: 1.1em;
+
+	@media (width <= 1440px) {
+		font-size: 1.05rem;
+	}
+
+	@media (width <= 1024px) {
+		font-size: 1rem;
+	}
+
+	@media (width <= 768px) {
+		font-size: 0.95rem;
+	}
+
+	@media (width <= 550px) {
+		font-size: 0.9rem;
+	}
+
+	@media (width <= 425px) {
+		font-size: 0.85rem;
+	}
 }

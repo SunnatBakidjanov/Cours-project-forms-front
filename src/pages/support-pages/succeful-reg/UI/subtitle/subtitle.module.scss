@@ -4,4 +4,27 @@
 	line-height: 115%;
 	font-size: 2rem;
 	transition: color var(--change-theme-transition) ease-out;
+
+	@media (width <= 1440px) {
+		font-size: 1.9rem;
+	}
+
+	@media (width <= 1024px) {
+		margin-bottom: 0.9rem;
+		font-size: 1.8rem;
+	}
+
+	@media (width <= 768px) {
+		margin-bottom: 0.8rem;
+		font-size: 1.5rem;
+	}
+
+	@media (width <= 550px) {
+		margin-bottom: 0.7rem;
+		font-size: 1.4rem;
+	}
+
+	@media (width <= 425px) {
+		font-size: 1.3rem;
+	}
 }
