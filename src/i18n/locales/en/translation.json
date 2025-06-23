@@ -68,6 +68,10 @@
 			"emailPlaceholder": "Enter your e-mail",
 			"passwordPlaceholder": "Enter password"
 		},
+		"errorMessages": {
+			"invalidPassword": "incorrect login or password",
+			"userBlocked": "Your account is blocked"
+		},
 		"linkBtn": {
 			"text": "Don't have an account?",
 			"button": "Create an account"

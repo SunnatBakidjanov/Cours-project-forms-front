@@ -14,7 +14,6 @@ const initialState = {
 	repeatPassword: '',
 	isLoading: false,
 	successful: {},
-	unhandledError: false,
 	errors: {},
 };
 
@@ -41,11 +40,6 @@ function reducer(state, { type, field, payload }) {
 				...state,
 				errors: payload,
 			};
-		case ACTIONS.SET_UNHANDLED_ERROR:
-			return {
-				...state,
-				unhandledError: payload,
-			};
 		case ACTIONS.SET_SUCCESSFUL:
 			return {
 				...state,
@@ -65,7 +59,6 @@ function reducer(state, { type, field, payload }) {
 				password: '',
 				repeatPassword: '',
 				errors: {},
-				unhandledError: false,
 			};
 		default:
 			return state;
@@ -137,7 +130,7 @@ export const useAuthFrom = () => {
 			const errors = err.response?.data?.errors || {};
 
 			dispatch({ type: ACTIONS.SET_ERRORS, payload: errors });
-			dispatch({ type: ACTIONS.SET_UNHANDLED_ERROR, payload: true });
+
 			return { success: false };
 		} finally {
 			dispatch({ type: ACTIONS.SET_LOADING, payload: false });

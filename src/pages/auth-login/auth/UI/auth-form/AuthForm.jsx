@@ -20,7 +20,7 @@ export const AuthForm = () => {
 	const { root, loginAuthPage } = useThemeVar();
 
 	const { state, setField, onSubmit } = useAuthFrom();
-	const { name, surname, email, password, repeatPassword, errors, isLoading, successful, unhandledError } = state;
+	const { name, surname, email, password, repeatPassword, errors, isLoading, successful } = state;
 
 	return (
 		<div className={classNames(styles.container, loginAuthPage.formBoxShadow)}>
@@ -83,8 +83,6 @@ export const AuthForm = () => {
 				{successful?.message?.includes('SUCCESSFUL_MESSAGE') && <Paragraph text={t('authPage.successMessage')} styleUsePlace="succefulMessage" className={loginAuthPage.successMessage} />}
 				{successful?.message?.includes('UPDATED_DATA') && <Paragraph text={t('authPage.updatedDataMessage')} styleUsePlace="succefulMessage" className={loginAuthPage.successMessage} />}
 				{successful?.message?.includes('RESENDING_MESSAGE') && <Paragraph text={t('authPage.resendingMessage')} styleUsePlace="succefulMessage" className={loginAuthPage.successMessage} />}
-
-				{unhandledError && <Paragraph text={t('unhandledError')} styleUsePlace="succefulMessage" className={loginAuthPage.errorMessages} />}
 
 				<Button text={isLoading ? '' : t('authPage.submitButton')} type="submit" className={classNames(styles.button, loginAuthPage.formBtnBgColor, root.reverseFontColor)} disabled={isLoading}>
 					{isLoading ? <SubmitBtnLoader className={loginAuthPage.submitLoader} /> : undefined}

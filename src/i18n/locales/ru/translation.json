@@ -68,6 +68,10 @@
 			"emailPlaceholder": "Введите ваш e-mail",
 			"passwordPlaceholder": "Введите пароль"
 		},
+		"errorMessages": {
+			"invalidPassword": "Неверный логин или пароль",
+			"userBlocked": "Ваш аккаунт заблокирован"
+		},
 		"linkBtn": {
 			"text": "У вас нет учетной записи?",
 			"button": "Создать аккаунт"

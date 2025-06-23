@@ -7,6 +7,7 @@ import { InputImg } from '../../../UI/input-img/InputImg';
 import { MainTitle } from '../../../../../UI/main-title/MainTitle';
 import { PasswordLabel } from '../../../UI/password-label/PasswordLabel';
 import { Button } from '../../../../../UI/button/Button';
+import { SubmitBtnLoader } from '../../../../../UI/submit-btn-loader/SubmitBtnLoader';
 
 import styles from '../../../styles/auth-login-form.module.scss';
 import classNames from 'classnames';
@@ -16,7 +17,7 @@ export const LoginForm = () => {
 	const { t } = useTranslation();
 	const { root, loginAuthPage } = useThemeVar();
 	const { state, setField, onSubmit } = useLoginForm();
-	const { email, password } = state;
+	const { email, password, isLoading, errors } = state;
 
 	return (
 		<div className={classNames(styles.container, loginAuthPage.formBoxShadow)}>
@@ -39,7 +40,12 @@ export const LoginForm = () => {
 					<PasswordLabel underlineThemeClassName={classNames(styles.labelUnderline)} placeholderText={t('loginPage.form.passwordPlaceholder')} name="password" value={password} onChange={e => setField('password', e.target.value)} />
 				</div>
 
-				<Button text={t('loginPage.submitButton')} type="submit" className={classNames(styles.button, root.reverseFontColor, loginAuthPage.formBtnBgColor)} />
+				{errors?.message?.includes('INCORRECT_LOGIN_OR_PASSWORD') && <Paragraph text={t('loginPage.errorMessages.invalidPassword')} styleUsePlace="succefulMessage" className={loginAuthPage.errorMessages} />}
+				{errors?.message?.includes('USER_BLOCKED') && <Paragraph text={t('loginPage.errorMessages.userBlocked')} styleUsePlace="succefulMessage" className={loginAuthPage.errorMessages} />}
+
+				<Button text={!isLoading ? t('loginPage.submitButton') : undefined} type="submit" className={classNames(styles.button, root.reverseFontColor, loginAuthPage.formBtnBgColor)}>
+					{isLoading ? <SubmitBtnLoader className={loginAuthPage.submitLoader} /> : undefined}
+				</Button>
 			</form>
 		</div>
 	);
