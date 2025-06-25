@@ -4,6 +4,7 @@ import { SubmitBtnLoader } from '../../../../../UI/submit-btn-loader/SubmitBtnLo
 import { useResendMail } from '../../hooks/useResendMail';
 import { useTimer } from '../../hooks/useTimer';
 import { useTranslation } from 'react-i18next';
+import { useRef } from 'react';
 
 import classNames from 'classnames';
 import styles from './resend-section.module.scss';

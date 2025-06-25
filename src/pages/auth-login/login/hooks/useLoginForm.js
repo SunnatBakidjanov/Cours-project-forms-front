@@ -7,15 +7,17 @@ const API_URL = import.meta.env.VITE_API_URL;
 const initialState = {
 	email: '',
 	password: '',
+	fullname: '',
 	errors: {},
+	isSuccess: false,
 	isLoading: false,
 };
 
-const RESENT_TIMER = 2000;
+const RESENT_TIMER = 2500;
 
 const ACTIONS = {
 	SET_FIELD: 'SET_FIELD',
-	CLEAR_FORM: 'CLEAR_FORM',
+	SET_SUCCESS: 'SET_SUCCESS',
 	LOADING: 'LOADING',
 	SET_ERROR: 'SET_ERROR',
 };
@@ -27,9 +29,14 @@ const reducer = (state, { type, field, payload }) => {
 				...state,
 				[field]: payload,
 			};
-		case ACTIONS.CLEAR_FORM:
+		case ACTIONS.SET_SUCCESS:
 			return {
-				...initialState,
+				...state,
+				error: {},
+				email: '',
+				password: '',
+				isSuccess: true,
+				fullname: payload,
 			};
 		case ACTIONS.SET_ERROR:
 			return {
@@ -76,17 +83,24 @@ export const useLoginForm = () => {
 				password: state.password,
 			});
 
-			redirect();
+			localStorage.setItem('accessToken', res.data.accessToken);
+			localStorage.setItem('refreshToken', res.data.refreshToken);
 
-			dispatch({ type: ACTIONS.CLEAR_FORM });
+			dispatch({
+				type: ACTIONS.SET_SUCCESS,
+				payload: {
+					name: res.data.user.name,
+					surname: res.data.user.surname,
+				},
+			});
+
+			redirect();
 
 			return { success: true };
 		} catch (err) {
 			const errors = err.response?.data?.errors || {};
 
 			dispatch({ type: ACTIONS.SET_ERROR, payload: errors });
-
-			console.log(errors);
 
 			console.error(err);
 			return { success: false };

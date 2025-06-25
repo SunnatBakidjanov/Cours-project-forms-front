@@ -28,13 +28,17 @@
 			"repeatPasswordPlaceholder": "Repeat password"
 		},
 		"errors": {
+			"nameInvalidFormat": "The name must contain only alphabetic characters",
+			"surnameInvalidFormat": "The surname must contain only alphabetic characters",
+			"emptyValue": "This field must not be empty.",
 			"repeatPassword": "Passwords do not match",
-			"emailInvalidFormat": "Invalid e-mail format",
 			"emailAlreadyExists": "E-mail already exists"
 		},
-		"successMessage": "Registration successful!",
-		"updatedDataMessage": "Data updated",
-		"resendingMessage": "Data updated, message resent",
+		"successfulMessages": {
+			"successMessage": "Registration successful!",
+			"updatedDataMessage": "Password updated",
+			"resendingMessage": "Data updated, message resent"
+		},
 		"linkBtn": {
 			"text": "Already have an account?",
 			"button": "Login"
@@ -71,6 +75,9 @@
 		"errorMessages": {
 			"invalidPassword": "incorrect login or password",
 			"userBlocked": "Your account is blocked"
+		},
+		"successMessages": {
+			"getting": "Welcome, {{ name, surname }}"
 		},
 		"linkBtn": {
 			"text": "Don't have an account?",

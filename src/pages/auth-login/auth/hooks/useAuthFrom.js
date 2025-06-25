@@ -1,7 +1,8 @@
 import { useReducer, use, useCallback } from 'react';
-import { changeLanguage } from '../../../../../../UI/translaitor-button/scripts/changeLanguage';
-import { ThemeContext } from '../../../../../../components/theme';
-import { useNavigate } from 'react-router-dom';
+import { changeLanguage } from '../../../../UI/translaitor-button/scripts/changeLanguage';
+import { ThemeContext } from '../../../../components/theme';
+import { useRedirect } from '../../../../hooks/useRedirect';
+import { validateForm } from '../scripts/validateForm';
 import axios from 'axios';
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -69,7 +70,7 @@ export const useAuthFrom = () => {
 	const [state, dispatch] = useReducer(reducer, initialState);
 	const { currentLang } = changeLanguage();
 	const { isThemeLight } = use(ThemeContext);
-	const navigate = useNavigate();
+	const redirect = useRedirect('/email-sent');
 
 	const setField = (field, value) => {
 		dispatch({ type: ACTIONS.SET_ERRORS, payload: {} });
@@ -77,36 +78,19 @@ export const useAuthFrom = () => {
 		dispatch({ type: ACTIONS.SET_FIELD, field, payload: value });
 	};
 
-	const validate = () => {
-		const errors = {};
-		if (!/\S+@\S+\.\S+/.test(state.email)) {
-			errors.email = ['EMAIL_INVALID_FORMAT'];
-		}
-		if (state.password !== state.repeatPassword) {
-			errors.repeatPassword = ['PASSWORDS_DO_NOT_MATCH'];
-		}
-		return errors;
-	};
-
-	const redirect = () => {
-		return setTimeout(() => {
-			navigate('/email-sent', {
-				state: {
-					name: state.name,
-					surname: state.surname,
-					email: state.email,
-				},
-			});
-		}, RESENT_TIMER);
-	};
-
 	const handleSubmit = useCallback(async () => {
-		const errors = validate();
+		const errors = validateForm(state);
 
 		if (Object.keys(errors).length > 0) {
 			dispatch({ type: ACTIONS.SET_ERRORS, payload: errors });
 			return { success: false };
 		}
+
+		redirect({
+			name: state.name,
+			surname: state.surname,
+			email: state.email,
+		});
 
 		dispatch({ type: ACTIONS.SET_LOADING, payload: true });
 
@@ -123,11 +107,9 @@ export const useAuthFrom = () => {
 			dispatch({ type: ACTIONS.SET_SUCCESSFUL, payload: res?.data?.successful || {} });
 			dispatch({ type: ACTIONS.CLEAR_FORM });
 
-			redirect();
-
 			return { success: true };
 		} catch (err) {
-			const errors = err.response?.data?.errors || {};
+			const errors = err.response?.data?.message || {};
 
 			dispatch({ type: ACTIONS.SET_ERRORS, payload: errors });
 
@@ -135,7 +117,7 @@ export const useAuthFrom = () => {
 		} finally {
 			dispatch({ type: ACTIONS.SET_LOADING, payload: false });
 		}
-	}, [state, dispatch, navigate, validate, redirect, currentLang, isThemeLight]);
+	}, [state, dispatch, redirect, currentLang, isThemeLight]);
 
 	const onSubmit = async e => {
 		e.preventDefault();

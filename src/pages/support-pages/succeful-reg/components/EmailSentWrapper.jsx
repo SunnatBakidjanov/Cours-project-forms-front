@@ -7,13 +7,15 @@ export const EmailSentWrapper = () => {
 	const navigate = useNavigate();
 	const [emailState, setEmailState] = useState(null);
 
+	const SENT_STATE = 'sent-state';
+
 	useEffect(() => {
 		if (state?.email) {
-			sessionStorage.setItem('sent-state', JSON.stringify(state));
+			sessionStorage.setItem(SENT_STATE, JSON.stringify(state));
 
 			setEmailState(state);
 		} else {
-			const savedState = sessionStorage.getItem('sent-state');
+			const savedState = sessionStorage.getItem(SENT_STATE);
 			if (savedState) {
 				setEmailState(JSON.parse(savedState));
 			} else {

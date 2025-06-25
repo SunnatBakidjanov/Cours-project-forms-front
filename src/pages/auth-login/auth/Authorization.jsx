@@ -2,7 +2,7 @@ import { Background } from '../../../UI/background/Background';
 import { LinkBtn } from '../UI/link-btn/LinkBtn';
 import { ChangeThemeButton } from '../../../UI/change-theme-button/ChangeThemeButton';
 import { TranslationButton } from '../../../UI/translaitor-button/TranslationButton';
-import { AuthForm } from './UI/auth-form/AuthForm';
+import { AuthForm } from './auth-form/AuthForm';
 
 import styles from '../styles/auth-login-root.module.scss';
 

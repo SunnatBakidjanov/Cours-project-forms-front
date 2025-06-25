@@ -1,19 +1,20 @@
 import { useTranslation } from 'react-i18next';
-import { useThemeVar } from '../../../../../hooks/useThemeVar/useThemeVar';
-import { useAuthFrom } from './hooks/useAuthFrom';
+import { useThemeVar } from '../../../../hooks/useThemeVar/useThemeVar';
+import { useAuthFrom } from '../hooks/useAuthFrom';
 
-import { Button } from '../../../../../UI/button/Button';
-import { MainTitle } from '../../../../../UI/main-title/MainTitle';
-import { Paragraph } from '../../../UI/paragraph/Paragrph';
-import { InputImg } from '../../../UI/input-img/InputImg';
-import { PasswordLabel } from '../../../UI/password-label/PasswordLabel';
-import { SubmitBtnLoader } from '../../../../../UI/submit-btn-loader/SubmitBtnLoader';
+import { Button } from '../../../../UI/button/Button';
+import { MainTitle } from '../../../../UI/main-title/MainTitle';
+import { Paragraph } from '../../UI/paragraph/Paragrph';
+import { InputImg } from '../../UI/input-img/InputImg';
+import { PasswordLabel } from '../../UI/password-label/PasswordLabel';
+import { SubmitBtnLoader } from '../../../../UI/submit-btn-loader/SubmitBtnLoader';
 
-import styles from '../../../styles/auth-login-form.module.scss';
+import styles from '../../styles/auth-login-form.module.scss';
 import classNames from 'classnames';
-import userImg from '../../../../../assets/imgs/svg/user.svg';
-import userGroupImg from '../../../../../assets/imgs/svg/user-group.svg';
-import emailImg from '../../../../../assets/imgs/svg/email.svg';
+import userImg from '../../../../assets/imgs/svg/user.svg';
+import userGroupImg from '../../../../assets/imgs/svg/user-group.svg';
+import emailImg from '../../../../assets/imgs/svg/email.svg';
+import { WarningMessages } from '../../UI/warning-messages/WarningMessages';
 
 export const AuthForm = () => {
 	const { t } = useTranslation();
@@ -35,6 +36,9 @@ export const AuthForm = () => {
 						<span className={classNames(styles.labelUnderline)}></span>
 						<InputImg src={userImg} styleUsePlace="text" />
 					</label>
+
+					<WarningMessages text="authPage.errors.nameInvalidFormat" styleUsePlace="formError" className={loginAuthPage.errorMessages} isShowMessage={errors?.name?.includes('NAME_INVALID_CHARACTERS')} />
+					<WarningMessages text="authPage.errors.emptyValue" styleUsePlace="formError" className={loginAuthPage.errorMessages} isShowMessage={errors?.name?.includes('NAME_REQUIRED')} />
 				</div>
 
 				<div className={styles.formBlock}>
@@ -45,6 +49,9 @@ export const AuthForm = () => {
 						<span className={classNames(styles.labelUnderline)}></span>
 						<InputImg src={userGroupImg} styleUsePlace="text" />
 					</label>
+
+					<WarningMessages text="authPage.errors.surnameInvalidFormat" styleUsePlace="formError" className={loginAuthPage.errorMessages} isShowMessage={errors?.surname?.includes('SURNAME_INVALID_CHARACTERS')} />
+					<WarningMessages text="authPage.errors.emptyValue" styleUsePlace="formError" className={loginAuthPage.errorMessages} isShowMessage={errors?.surname?.includes('SURNAME_REQUIRED')} />
 				</div>
 
 				<div className={styles.formBlock}>
@@ -56,8 +63,7 @@ export const AuthForm = () => {
 						<InputImg src={emailImg} styleUsePlace="text" />
 					</label>
 
-					{errors?.email?.includes('EMAIL_ALREADY_EXISTS') && <Paragraph styleUsePlace="formError" text={t('authPage.errors.emailAlreadyExists')} className={loginAuthPage.errorMessages} />}
-					{errors?.email?.includes('EMAIL_INVALID_FORMAT') && <Paragraph styleUsePlace="formError" text={t('authPage.errors.emailInvalidFormat')} className={loginAuthPage.errorMessages} />}
+					<WarningMessages text="authPage.errors.emailAlreadyExists" styleUsePlace="formError" className={loginAuthPage.errorMessages} isShowMessage={errors?.message?.includes('USER_STATUS_ACTIVE')} />
 				</div>
 
 				<div className={styles.formBlock}>
@@ -77,12 +83,12 @@ export const AuthForm = () => {
 						onChange={e => setField('repeatPassword', e.target.value)}
 					/>
 
-					{errors?.repeatPassword?.includes('PASSWORDS_DO_NOT_MATCH') && <Paragraph styleUsePlace="formError" text={t(`authPage.errors.repeatPassword`)} className={loginAuthPage.errorMessages} />}
+					<WarningMessages text="authPage.errors.repeatPassword" styleUsePlace="formError" className={loginAuthPage.errorMessages} isShowMessage={errors?.repeatPassword?.includes('PASSWORDS_DO_NOT_MATCH')} />
 				</div>
 
-				{successful?.message?.includes('SUCCESSFUL_MESSAGE') && <Paragraph text={t('authPage.successMessage')} styleUsePlace="succefulMessage" className={loginAuthPage.successMessage} />}
-				{successful?.message?.includes('UPDATED_DATA') && <Paragraph text={t('authPage.updatedDataMessage')} styleUsePlace="succefulMessage" className={loginAuthPage.successMessage} />}
-				{successful?.message?.includes('RESENDING_MESSAGE') && <Paragraph text={t('authPage.resendingMessage')} styleUsePlace="succefulMessage" className={loginAuthPage.successMessage} />}
+				<WarningMessages text="authPage.successfulMessages.successMessage" styleUsePlace="succefulMessage" className={loginAuthPage.successMessage} isShowMessage={successful?.message.includes('SUCCESSFUL_MESSAGE')} />
+				<WarningMessages text="authPage.successfulMessages.updatedDataMessage" styleUsePlace="succefulMessage" className={loginAuthPage.successMessage} isShowMessage={successful?.message.includes('UPDATE_DATA')} />
+				<WarningMessages text="authPage.successfulMessages.resendingMessage" styleUsePlace="succefulMessage" className={loginAuthPage.successMessage} isShowMessage={successful?.message.includes('RESENDING_MESSAGE')} />
 
 				<Button text={isLoading ? '' : t('authPage.submitButton')} type="submit" className={classNames(styles.button, loginAuthPage.formBtnBgColor, root.reverseFontColor)} disabled={isLoading}>
 					{isLoading ? <SubmitBtnLoader className={loginAuthPage.submitLoader} /> : undefined}

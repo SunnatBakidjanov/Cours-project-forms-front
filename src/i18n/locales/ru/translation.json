@@ -28,13 +28,17 @@
 			"repeatPasswordPlaceholder": "Повторите пароль"
 		},
 		"errors": {
+			"nameInvalidFormat": "Имя должно содержать только буквенные символы",
+			"surnameInvalidFormat": "Фамилия должна содержать только буквенные символы",
+			"emptyValue": "Это поле не должно быть пустым",
 			"repeatPassword": "Пароли не совпадают",
-			"emailInvalidFormat": "Неверный формат электронной почты",
 			"emailAlreadyExists": "Электронная почта уже существует"
 		},
-		"successMessage": "Регистрация прошла успешно!",
-		"updatedDataMessage": "Данные обновлены",
-		"resendingMessage": "Данные обновлены , сообщение отправлено повторно",
+		"successfulMessages": {
+			"successMessage": "Регистрация прошла успешно!",
+			"updatedDataMessage": "Пароль обновлен",
+			"resendingMessage": "Данные обновлены , сообщение отправлено повторно"
+		},
 		"linkBtn": {
 			"text": "Уже есть аккаунт?",
 			"button": "Войти"
@@ -71,6 +75,9 @@
 		"errorMessages": {
 			"invalidPassword": "Неверный логин или пароль",
 			"userBlocked": "Ваш аккаунт заблокирован"
+		},
+		"successMessages": {
+			"getting": "Добро пожаловать, {{ name, surname }}"
 		},
 		"linkBtn": {
 			"text": "У вас нет учетной записи?",

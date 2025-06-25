@@ -17,7 +17,8 @@ export const LoginForm = () => {
 	const { t } = useTranslation();
 	const { root, loginAuthPage } = useThemeVar();
 	const { state, setField, onSubmit } = useLoginForm();
-	const { email, password, isLoading, errors } = state;
+	const { email, password, isLoading, errors, fullname, isSuccess } = state;
+	const { name, surname } = fullname;
 
 	return (
 		<div className={classNames(styles.container, loginAuthPage.formBoxShadow)}>
@@ -42,6 +43,7 @@ export const LoginForm = () => {
 
 				{errors?.message?.includes('INCORRECT_LOGIN_OR_PASSWORD') && <Paragraph text={t('loginPage.errorMessages.invalidPassword')} styleUsePlace="succefulMessage" className={loginAuthPage.errorMessages} />}
 				{errors?.message?.includes('USER_BLOCKED') && <Paragraph text={t('loginPage.errorMessages.userBlocked')} styleUsePlace="succefulMessage" className={loginAuthPage.errorMessages} />}
+				{isSuccess && <Paragraph text={t('loginPage.successMessages.getting', { name, surname })} styleUsePlace="succefulMessage" className={loginAuthPage.successMessage} />}
 
 				<Button text={!isLoading ? t('loginPage.submitButton') : undefined} type="submit" className={classNames(styles.button, root.reverseFontColor, loginAuthPage.formBtnBgColor)}>
 					{isLoading ? <SubmitBtnLoader className={loginAuthPage.submitLoader} /> : undefined}
