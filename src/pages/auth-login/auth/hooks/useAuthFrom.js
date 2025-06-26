@@ -15,10 +15,9 @@ const initialState = {
 	repeatPassword: '',
 	isLoading: false,
 	successful: {},
+	isSuccess: false,
 	errors: {},
 };
-
-const RESENT_TIMER = 2500;
 
 const ACTIONS = {
 	SET_FIELD: 'SET_FIELD',
@@ -44,7 +43,8 @@ function reducer(state, { type, field, payload }) {
 		case ACTIONS.SET_SUCCESSFUL:
 			return {
 				...state,
-				successful: payload,
+				isSuccess: payload.state,
+				successful: payload.message,
 			};
 		case ACTIONS.SET_LOADING:
 			return {
@@ -86,12 +86,6 @@ export const useAuthFrom = () => {
 			return { success: false };
 		}
 
-		redirect({
-			name: state.name,
-			surname: state.surname,
-			email: state.email,
-		});
-
 		dispatch({ type: ACTIONS.SET_LOADING, payload: true });
 
 		try {
@@ -104,13 +98,20 @@ export const useAuthFrom = () => {
 				theme: isThemeLight,
 			});
 
-			dispatch({ type: ACTIONS.SET_SUCCESSFUL, payload: res?.data?.successful || {} });
+			dispatch({ type: ACTIONS.SET_SUCCESSFUL, payload: { message: res?.data?.successful, state: true } || {} });
 			dispatch({ type: ACTIONS.CLEAR_FORM });
 
-			return { success: true };
-		} catch (err) {
-			const errors = err.response?.data?.message || {};
+			redirect({
+				name: state.name,
+				surname: state.surname,
+				email: state.email,
+			});
 
+			return { success: true };
+		} catch (error) {
+			const errors = error.response?.data?.message || {};
+
+			dispatch({ type: ACTIONS.SET_SUCCESSFUL, payload: { message: null, state: false } || {} });
 			dispatch({ type: ACTIONS.SET_ERRORS, payload: errors });
 
 			return { success: false };

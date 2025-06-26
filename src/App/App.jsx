@@ -7,6 +7,7 @@ import { Authorization } from '../pages/auth-login/auth/Authorization';
 import { Login } from '../pages/auth-login/login/Login';
 import { EmailSentWrapper } from '../pages/support-pages/succeful-reg/components/EmailSentWrapper';
 import { FormPage } from '../pages/form-page/FormPage';
+import { AuthSubmitTimerProvider } from '../components/timer-submit/authSubmitTimerProvider';
 
 import './main.scss';
 import './reset.scss';
@@ -19,9 +20,23 @@ export const App = () => {
 					<Routes>
 						<Route path="/" element={<Navigate to="/technical-work" replace />} />
 						<Route path="/technical-work" element={<Technicalwork />} />
-						<Route path="/auth" element={<Authorization />} />
+						<Route
+							path="/auth"
+							element={
+								<AuthSubmitTimerProvider>
+									<Authorization />
+								</AuthSubmitTimerProvider>
+							}
+						/>
+						<Route
+							path="/email-sent"
+							element={
+								<AuthSubmitTimerProvider>
+									<EmailSentWrapper />
+								</AuthSubmitTimerProvider>
+							}
+						/>
 						<Route path="/login" element={<Login />} />
-						<Route path="/email-sent" element={<EmailSentWrapper />} />
 						<Route path="/form" element={<FormPage />} />
 					</Routes>
 				</MainLayout>

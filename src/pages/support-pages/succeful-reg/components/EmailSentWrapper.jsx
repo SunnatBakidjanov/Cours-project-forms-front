@@ -7,7 +7,7 @@ export const EmailSentWrapper = () => {
 	const navigate = useNavigate();
 	const [emailState, setEmailState] = useState(null);
 
-	const SENT_STATE = 'sent-state';
+	const SENT_STATE = 'register-date-state';
 
 	useEffect(() => {
 		if (state?.email) {

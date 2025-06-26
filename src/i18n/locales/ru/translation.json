@@ -36,7 +36,7 @@
 		},
 		"successfulMessages": {
 			"successMessage": "Регистрация прошла успешно!",
-			"updatedDataMessage": "Пароль обновлен",
+			"updatedDataMessage": "Данные не изменились",
 			"resendingMessage": "Данные обновлены , сообщение отправлено повторно"
 		},
 		"linkBtn": {

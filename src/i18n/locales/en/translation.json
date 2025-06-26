@@ -36,7 +36,7 @@
 		},
 		"successfulMessages": {
 			"successMessage": "Registration successful!",
-			"updatedDataMessage": "Password updated",
+			"updatedDataMessage": "Data has not changed",
 			"resendingMessage": "Data updated, message resent"
 		},
 		"linkBtn": {

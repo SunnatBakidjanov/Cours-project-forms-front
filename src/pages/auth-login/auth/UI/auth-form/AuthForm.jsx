@@ -1,27 +1,26 @@
 import { useTranslation } from 'react-i18next';
-import { useThemeVar } from '../../../../hooks/useThemeVar/useThemeVar';
-import { useAuthFrom } from '../hooks/useAuthFrom';
+import { useThemeVar } from '../../../../../hooks/useThemeVar/useThemeVar';
+import { useAuthFrom } from '../../hooks/useAuthFrom';
 
-import { Button } from '../../../../UI/button/Button';
-import { MainTitle } from '../../../../UI/main-title/MainTitle';
-import { Paragraph } from '../../UI/paragraph/Paragrph';
-import { InputImg } from '../../UI/input-img/InputImg';
-import { PasswordLabel } from '../../UI/password-label/PasswordLabel';
-import { SubmitBtnLoader } from '../../../../UI/submit-btn-loader/SubmitBtnLoader';
+import { MainTitle } from '../../../../../UI/main-title/MainTitle';
+import { Paragraph } from '../../../UI/paragraph/Paragrph';
+import { InputImg } from '../../../UI/input-img/InputImg';
+import { PasswordLabel } from '../../../UI/password-label/PasswordLabel';
+import { WarningMessages } from '../../../UI/warning-messages/WarningMessages';
 
-import styles from '../../styles/auth-login-form.module.scss';
+import styles from '../../../styles/auth-login-form.module.scss';
 import classNames from 'classnames';
-import userImg from '../../../../assets/imgs/svg/user.svg';
-import userGroupImg from '../../../../assets/imgs/svg/user-group.svg';
-import emailImg from '../../../../assets/imgs/svg/email.svg';
-import { WarningMessages } from '../../UI/warning-messages/WarningMessages';
+import userImg from '../../../../../assets/imgs/svg/user.svg';
+import userGroupImg from '../../../../../assets/imgs/svg/user-group.svg';
+import emailImg from '../../../../../assets/imgs/svg/email.svg';
+import { SendButton } from '../send-button/SendButton';
 
 export const AuthForm = () => {
 	const { t } = useTranslation();
 	const { root, loginAuthPage } = useThemeVar();
 
 	const { state, setField, onSubmit } = useAuthFrom();
-	const { name, surname, email, password, repeatPassword, errors, isLoading, successful } = state;
+	const { name, surname, email, password, repeatPassword, errors, isLoading, successful, isSuccess } = state;
 
 	return (
 		<div className={classNames(styles.container, loginAuthPage.formBoxShadow)}>
@@ -86,13 +85,11 @@ export const AuthForm = () => {
 					<WarningMessages text="authPage.errors.repeatPassword" styleUsePlace="formError" className={loginAuthPage.errorMessages} isShowMessage={errors?.repeatPassword?.includes('PASSWORDS_DO_NOT_MATCH')} />
 				</div>
 
-				<WarningMessages text="authPage.successfulMessages.successMessage" styleUsePlace="succefulMessage" className={loginAuthPage.successMessage} isShowMessage={successful?.message.includes('SUCCESSFUL_MESSAGE')} />
-				<WarningMessages text="authPage.successfulMessages.updatedDataMessage" styleUsePlace="succefulMessage" className={loginAuthPage.successMessage} isShowMessage={successful?.message.includes('UPDATE_DATA')} />
-				<WarningMessages text="authPage.successfulMessages.resendingMessage" styleUsePlace="succefulMessage" className={loginAuthPage.successMessage} isShowMessage={successful?.message.includes('RESENDING_MESSAGE')} />
+				<WarningMessages text="authPage.successfulMessages.successMessage" styleUsePlace="succefulMessage" className={loginAuthPage.successMessage} isShowMessage={successful?.message?.includes('SUCCESSFUL_MESSAGE')} />
+				<WarningMessages text="authPage.successfulMessages.updatedDataMessage" styleUsePlace="succefulMessage" className={loginAuthPage.successMessage} isShowMessage={successful?.message?.includes('UPDATE_DATA')} />
+				<WarningMessages text="authPage.successfulMessages.resendingMessage" styleUsePlace="succefulMessage" className={loginAuthPage.successMessage} isShowMessage={successful?.message?.includes('RESENDING_MESSAGE')} />
 
-				<Button text={isLoading ? '' : t('authPage.submitButton')} type="submit" className={classNames(styles.button, loginAuthPage.formBtnBgColor, root.reverseFontColor)} disabled={isLoading}>
-					{isLoading ? <SubmitBtnLoader className={loginAuthPage.submitLoader} /> : undefined}
-				</Button>
+				<SendButton isLoading={isLoading} className={styles.button} isSuccess={isSuccess} />
 			</form>
 		</div>
 	);

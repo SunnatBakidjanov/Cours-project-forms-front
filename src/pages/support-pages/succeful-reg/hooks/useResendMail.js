@@ -2,6 +2,7 @@ import { useReducer, useCallback, use } from 'react';
 import { changeLanguage } from '../../../../UI/translaitor-button/scripts/changeLanguage';
 import { ThemeContext } from '../../../../components/theme';
 import axios from 'axios';
+import { useAuthSubmitTimer } from '../../../../hooks/useAuthSubmitTimer';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -33,6 +34,7 @@ export const useResendMail = email => {
 	const [state, dispatch] = useReducer(reducer, initialState);
 	const { currentLang } = changeLanguage();
 	const { isThemeLight } = use(ThemeContext);
+	const { start } = useAuthSubmitTimer();
 
 	const handleResend = useCallback(async () => {
 		dispatch({ type: ACTIONS.RESET_ERROR });
@@ -44,10 +46,14 @@ export const useResendMail = email => {
 				lang: currentLang,
 				theme: isThemeLight,
 			});
+
+			start();
+
 			return true;
-		} catch (err) {
-			console.error(err);
+		} catch (error) {
+			console.error(error);
 			dispatch({ type: ACTIONS.SET_ERROR, payload: true });
+
 			return false;
 		} finally {
 			dispatch({ type: ACTIONS.SET_LOADING, payload: false });
