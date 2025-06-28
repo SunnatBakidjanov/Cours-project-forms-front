@@ -1,6 +1,9 @@
 {
 	"translationBtn": "RU",
 	"unhandledError": "Error, please try again",
+	"header": {
+		"loginBtn": "Sign In"
+	},
 	"technikalWorkPage": {
 		"title": "Technical work is underway",
 		"countDownText": "Remaining until the completion of technical works",
@@ -56,7 +59,10 @@
 		],
 		"button": "Send again",
 		"timerText": "Retry available in {{timer}} sec.",
-		"errMessage": "Error, please try again",
+		"errMessages": {
+			"userActive": "You have already confirmed your email.",
+			"mailResend": "Message resent"
+		},
 		"inccorectData": {
 			"title": "If you entered the data incorrectly...",
 			"text": "Please re-register so that we can successfully create your account.",
@@ -74,10 +80,11 @@
 		},
 		"errorMessages": {
 			"invalidPassword": "incorrect login or password",
-			"userBlocked": "Your account is blocked"
+			"userBlocked": "Your account is blocked",
+			"userPandding": "Confirm your email"
 		},
 		"successMessages": {
-			"getting": "Welcome, {{ name, surname }}"
+			"getting": "Welcome, "
 		},
 		"linkBtn": {
 			"text": "Don't have an account?",

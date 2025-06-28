@@ -2,7 +2,7 @@ import { use } from 'react';
 import { useDisable } from '../../hooks/useDisable';
 import { useThemeVar } from '../../hooks/useThemeVar/useThemeVar';
 
-import { ThemeContext } from '../../components/theme';
+import { ThemeContext } from '../../context/theme';
 import { Button } from '../button/Button';
 import { ChangeThemeImg } from './UI/changeThemeImg/ChengeThemeImg';
 

@@ -1,4 +1,4 @@
-import { ThemeContext } from '../../components/theme';
+import { ThemeContext } from '../../context/theme';
 import { use } from 'react';
 
 import styles from './theme-var.module.scss';
@@ -30,7 +30,7 @@ export const useThemeVar = () => {
 		btnLinkUnderlineBgColor: isThemeLight ? loginAuthStyles.btnLinkUnderLineBgColorLithTheme : loginAuthStyles.btnLinkUnderLineBgColorDarkTheme,
 		formBoxShadow: isThemeLight ? loginAuthStyles.formBoxShadowLightTheme : loginAuthStyles.formBoxShadowDarkTheme,
 		errorMessages: isThemeLight ? loginAuthStyles.errorsMessagesLigthTheme : loginAuthStyles.errorsMessagesDarkTheme,
-		submitLoader: isThemeLight ? loginAuthStyles.submitBtnLoaderBorderTopColorLigthTheme : loginAuthStyles.submitBtnLoaderBorderTopColorDarkTheme,
+		submitLoader: isThemeLight ? loginAuthStyles.loaderBorderTopColorLigthTheme : loginAuthStyles.loaderBorderTopColorDarkTheme,
 		successMessage: isThemeLight ? loginAuthStyles.succefulMessageColorLightTheme : loginAuthStyles.succefulMessageColorDarkTheme,
 	};
 

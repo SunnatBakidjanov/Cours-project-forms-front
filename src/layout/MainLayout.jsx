@@ -1,7 +1,9 @@
-export const MainLayout = ({ children }) => {
+import { Outlet } from 'react-router-dom';
+
+export const MainLayout = () => {
 	return (
-		<>
-			<main>{children}</main>
-		</>
+		<main>
+			<Outlet />
+		</main>
 	);
 };

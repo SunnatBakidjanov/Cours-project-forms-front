@@ -1,5 +1,5 @@
 import { use } from 'react';
-import { AuthSubmitTimerContext } from '../components/timer-submit';
+import { AuthSubmitTimerContext } from '../context/timer-submit';
 
 export const useAuthSubmitTimer = () => {
 	return use(AuthSubmitTimerContext);

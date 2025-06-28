@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 
 import { SubmitButtonTimer } from '../../../../../UI/submit-button-timer/SubmitButtonTimer';
-import { SubmitBtnLoader } from '../../../../../UI/submit-btn-loader/SubmitBtnLoader';
+import { Loader } from '../../../../../UI/submit-btn-loader/Loader';
 import { Button } from '../../../../../UI/button/Button';
 
 import styles from './send-button.module.scss';
@@ -24,7 +24,7 @@ export const SendButton = ({ isLoading, className, isSuccess }) => {
 	return (
 		<div className={styles.wrapper}>
 			<Button text={isLoading ? '' : t('authPage.submitButton')} type="submit" className={classNames(className, loginAuthPage.formBtnBgColor, root.reverseFontColor, isActive && styles.btnDisabled)} disabled={isLoading || isActive}>
-				{isLoading ? <SubmitBtnLoader className={loginAuthPage.submitLoader} /> : undefined}
+				{isLoading ? <Loader className={loginAuthPage.submitLoader} styleUsePlace="submitBtn" /> : undefined}
 			</Button>
 
 			<SubmitButtonTimer className={styles.timerText} />

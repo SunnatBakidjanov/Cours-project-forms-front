@@ -1,12 +1,25 @@
+@keyframes rotation {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
 .loader {
 	display: inline-block;
 	box-sizing: border-box;
-	width: 30px;
-	height: 30px;
 	border-top: 3px solid;
 	border-right: 3px solid transparent;
 	border-radius: 50%;
 	animation: rotation 1s linear infinite;
+}
+
+.submitBtn {
+	width: 30px;
+	height: 30px;
 
 	@media (width <= 1440px) {
 		width: 28px;
@@ -35,12 +48,7 @@
 	}
 }
 
-@keyframes rotation {
-	0% {
-		transform: rotate(0deg);
-	}
-
-	100% {
-		transform: rotate(360deg);
-	}
+.pageLoader {
+	width: 10%;
+	height: 10%;
 }

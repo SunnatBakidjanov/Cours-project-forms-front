@@ -1,6 +1,6 @@
 import { useReducer, use, useCallback } from 'react';
 import { changeLanguage } from '../../../../UI/translaitor-button/scripts/changeLanguage';
-import { ThemeContext } from '../../../../components/theme';
+import { ThemeContext } from '../../../../context/theme';
 import { useRedirect } from '../../../../hooks/useRedirect';
 import { validateForm } from '../scripts/validateForm';
 import axios from 'axios';
@@ -98,7 +98,7 @@ export const useAuthFrom = () => {
 				theme: isThemeLight,
 			});
 
-			dispatch({ type: ACTIONS.SET_SUCCESSFUL, payload: { message: res?.data?.successful, state: true } || {} });
+			dispatch({ type: ACTIONS.SET_SUCCESSFUL, payload: { message: res?.data?.successful?.message, state: true } || {} });
 			dispatch({ type: ACTIONS.CLEAR_FORM });
 
 			redirect({
@@ -109,7 +109,7 @@ export const useAuthFrom = () => {
 
 			return { success: true };
 		} catch (error) {
-			const errors = error.response?.data?.message || {};
+			const errors = error.response?.data?.message || null;
 
 			dispatch({ type: ACTIONS.SET_SUCCESSFUL, payload: { message: null, state: false } || {} });
 			dispatch({ type: ACTIONS.SET_ERRORS, payload: errors });

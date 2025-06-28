@@ -36,8 +36,9 @@ export const AuthForm = () => {
 						<InputImg src={userImg} styleUsePlace="text" />
 					</label>
 
-					<WarningMessages text="authPage.errors.nameInvalidFormat" styleUsePlace="formError" className={loginAuthPage.errorMessages} isShowMessage={errors?.name?.includes('NAME_INVALID_CHARACTERS')} />
-					<WarningMessages text="authPage.errors.emptyValue" styleUsePlace="formError" className={loginAuthPage.errorMessages} isShowMessage={errors?.name?.includes('NAME_REQUIRED')} />
+					<WarningMessages text="authPage.errors.nameInvalidFormat" styleUsePlace="formError" className={loginAuthPage.errorMessages} isShowMessage={errors?.name === 'NAME_INVALID_CHARACTERS'} />
+					<WarningMessages text="authPage.errors.emptyValue" styleUsePlace="formError" className={loginAuthPage.errorMessages} isShowMessage={errors?.name === 'NAME_REQUIRED'} />
+					<WarningMessages text="authPage.errors.emptyValue" styleUsePlace="formError" className={loginAuthPage.errorMessages} isShowMessage={errors?.name === 'NAME_REQUIRED'} />
 				</div>
 
 				<div className={styles.formBlock}>
@@ -49,8 +50,8 @@ export const AuthForm = () => {
 						<InputImg src={userGroupImg} styleUsePlace="text" />
 					</label>
 
-					<WarningMessages text="authPage.errors.surnameInvalidFormat" styleUsePlace="formError" className={loginAuthPage.errorMessages} isShowMessage={errors?.surname?.includes('SURNAME_INVALID_CHARACTERS')} />
-					<WarningMessages text="authPage.errors.emptyValue" styleUsePlace="formError" className={loginAuthPage.errorMessages} isShowMessage={errors?.surname?.includes('SURNAME_REQUIRED')} />
+					<WarningMessages text="authPage.errors.surnameInvalidFormat" styleUsePlace="formError" className={loginAuthPage.errorMessages} isShowMessage={errors?.surname === 'SURNAME_INVALID_CHARACTERS'} />
+					<WarningMessages text="authPage.errors.emptyValue" styleUsePlace="formError" className={loginAuthPage.errorMessages} isShowMessage={errors?.surname === 'SURNAME_REQUIRED'} />
 				</div>
 
 				<div className={styles.formBlock}>
@@ -62,7 +63,7 @@ export const AuthForm = () => {
 						<InputImg src={emailImg} styleUsePlace="text" />
 					</label>
 
-					<WarningMessages text="authPage.errors.emailAlreadyExists" styleUsePlace="formError" className={loginAuthPage.errorMessages} isShowMessage={errors?.message?.includes('USER_STATUS_ACTIVE')} />
+					<WarningMessages text="authPage.errors.emailAlreadyExists" styleUsePlace="formError" className={loginAuthPage.errorMessages} isShowMessage={errors === 'USER_STATUS_ACTIVE'} />
 				</div>
 
 				<div className={styles.formBlock}>
@@ -82,12 +83,13 @@ export const AuthForm = () => {
 						onChange={e => setField('repeatPassword', e.target.value)}
 					/>
 
-					<WarningMessages text="authPage.errors.repeatPassword" styleUsePlace="formError" className={loginAuthPage.errorMessages} isShowMessage={errors?.repeatPassword?.includes('PASSWORDS_DO_NOT_MATCH')} />
+					<WarningMessages text="authPage.errors.repeatPassword" styleUsePlace="formError" className={loginAuthPage.errorMessages} isShowMessage={errors?.repeatPassword === 'PASSWORDS_DO_NOT_MATCH'} />
 				</div>
 
-				<WarningMessages text="authPage.successfulMessages.successMessage" styleUsePlace="succefulMessage" className={loginAuthPage.successMessage} isShowMessage={successful?.message?.includes('SUCCESSFUL_MESSAGE')} />
-				<WarningMessages text="authPage.successfulMessages.updatedDataMessage" styleUsePlace="succefulMessage" className={loginAuthPage.successMessage} isShowMessage={successful?.message?.includes('UPDATE_DATA')} />
-				<WarningMessages text="authPage.successfulMessages.resendingMessage" styleUsePlace="succefulMessage" className={loginAuthPage.successMessage} isShowMessage={successful?.message?.includes('RESENDING_MESSAGE')} />
+				<WarningMessages text="authPage.successfulMessages.successMessage" styleUsePlace="succefulMessage" className={loginAuthPage.successMessage} isShowMessage={successful === 'SUCCESSFUL_MESSAGE'} />
+				<WarningMessages text="authPage.successfulMessages.updatedDataMessage" styleUsePlace="succefulMessage" className={loginAuthPage.successMessage} isShowMessage={successful === 'UPDATE_DATA'} />
+				<WarningMessages text="authPage.successfulMessages.resendingMessage" styleUsePlace="succefulMessage" className={loginAuthPage.successMessage} isShowMessage={successful === 'RESENDING_MESSAGE'} />
+				<WarningMessages text="unhandledError" styleUsePlace="succefulMessage" className={loginAuthPage.errorMessages} isShowMessage={errors === 'SERVER_ERROR'} />
 
 				<SendButton isLoading={isLoading} className={styles.button} isSuccess={isSuccess} />
 			</form>

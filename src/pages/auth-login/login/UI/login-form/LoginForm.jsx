@@ -7,7 +7,8 @@ import { InputImg } from '../../../UI/input-img/InputImg';
 import { MainTitle } from '../../../../../UI/main-title/MainTitle';
 import { PasswordLabel } from '../../../UI/password-label/PasswordLabel';
 import { Button } from '../../../../../UI/button/Button';
-import { SubmitBtnLoader } from '../../../../../UI/submit-btn-loader/SubmitBtnLoader';
+import { Loader } from '../../../../../UI/submit-btn-loader/Loader';
+import { WarningMessages } from '../../../UI/warning-messages/WarningMessages';
 
 import styles from '../../../styles/auth-login-form.module.scss';
 import classNames from 'classnames';
@@ -17,8 +18,7 @@ export const LoginForm = () => {
 	const { t } = useTranslation();
 	const { root, loginAuthPage } = useThemeVar();
 	const { state, setField, onSubmit } = useLoginForm();
-	const { email, password, isLoading, errors, fullname, isSuccess } = state;
-	const { name, surname } = fullname;
+	const { email, password, isLoading, errors, fullname, successMessage } = state;
 
 	return (
 		<div className={classNames(styles.container, loginAuthPage.formBoxShadow)}>
@@ -34,19 +34,19 @@ export const LoginForm = () => {
 						<InputImg src={emailImg} styleUsePlace="text" />
 					</label>
 				</div>
-
 				<div className={styles.formBlock}>
 					<Paragraph text={t('loginPage.form.password')} styleUsePlace="formText" className={root.fontColor} />
 
 					<PasswordLabel underlineThemeClassName={classNames(styles.labelUnderline)} placeholderText={t('loginPage.form.passwordPlaceholder')} name="password" value={password} onChange={e => setField('password', e.target.value)} />
 				</div>
 
-				{errors?.message?.includes('INCORRECT_LOGIN_OR_PASSWORD') && <Paragraph text={t('loginPage.errorMessages.invalidPassword')} styleUsePlace="succefulMessage" className={loginAuthPage.errorMessages} />}
-				{errors?.message?.includes('USER_BLOCKED') && <Paragraph text={t('loginPage.errorMessages.userBlocked')} styleUsePlace="succefulMessage" className={loginAuthPage.errorMessages} />}
-				{isSuccess && <Paragraph text={t('loginPage.successMessages.getting', { name, surname })} styleUsePlace="succefulMessage" className={loginAuthPage.successMessage} />}
+				<WarningMessages text={t('loginPage.errorMessages.invalidPassword')} className={loginAuthPage.errorMessages} styleUsePlace="succefulMessage" isShowMessage={errors === 'INCORRECT_LOGIN_OR_PASSWORD'} />
+				<WarningMessages text={t('loginPage.errorMessages.userBlocked')} className={loginAuthPage.errorMessages} styleUsePlace={'succefulMessage'} isShowMessage={errors === 'BLOCKED_ACCAUNT'} />
+				<WarningMessages text={t('loginPage.errorMessages.userPandding')} className={loginAuthPage.errorMessages} styleUsePlace={'succefulMessage'} isShowMessage={errors === 'USER_STATUS_PENDING'} />
+				<WarningMessages text={`${t('loginPage.successMessages.getting')} ${fullname?.name} ${fullname?.surname}`} styleUsePlace="succefulMessage" className={loginAuthPage.successMessage} isShowMessage={successMessage === 'CORRECT_USER'} />
 
 				<Button text={!isLoading ? t('loginPage.submitButton') : undefined} type="submit" className={classNames(styles.button, root.reverseFontColor, loginAuthPage.formBtnBgColor)}>
-					{isLoading ? <SubmitBtnLoader className={loginAuthPage.submitLoader} /> : undefined}
+					{isLoading ? <Loader className={loginAuthPage.submitLoader} /> : undefined}
 				</Button>
 			</form>
 		</div>

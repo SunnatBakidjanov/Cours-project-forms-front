@@ -1,5 +1,7 @@
 import { useCallback, useReducer } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useRedirect } from '../../../../hooks/useRedirect';
+import { useDispatch } from 'react-redux';
+import { setAccessToken, setUser } from '../../../../redux/slices/authSlice';
 import axios from 'axios';
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -8,12 +10,10 @@ const initialState = {
 	email: '',
 	password: '',
 	fullname: '',
-	errors: {},
+	errors: '',
 	isSuccess: false,
 	isLoading: false,
 };
-
-const RESENT_TIMER = 2500;
 
 const ACTIONS = {
 	SET_FIELD: 'SET_FIELD',
@@ -35,8 +35,8 @@ const reducer = (state, { type, field, payload }) => {
 				error: {},
 				email: '',
 				password: '',
-				isSuccess: true,
-				fullname: payload,
+				successMessage: payload.message,
+				fullname: payload.fullname,
 			};
 		case ACTIONS.SET_ERROR:
 			return {
@@ -56,53 +56,51 @@ const reducer = (state, { type, field, payload }) => {
 
 export const useLoginForm = () => {
 	const [state, dispatch] = useReducer(reducer, initialState);
-	const navigate = useNavigate();
+	const redirect = useRedirect('/form', 2500);
+	const reduxDispatch = useDispatch();
 
 	const setField = (field, value) => {
 		dispatch({ type: ACTIONS.SET_FIELD, field, payload: value });
-	};
-
-	const redirect = () => {
-		return setTimeout(() => {
-			navigate('/form', {
-				state: {
-					name: state.name,
-					surname: state.surname,
-					email: state.email,
-				},
-			});
-		}, RESENT_TIMER);
 	};
 
 	const handleSubmit = useCallback(async () => {
 		dispatch({ type: ACTIONS.LOADING, payload: true });
 
 		try {
-			const res = await axios.post(`${API_URL}/api/login`, {
-				email: state.email,
-				password: state.password,
-			});
+			const res = await axios.post(
+				`${API_URL}/api/login`,
+				{
+					email: state.email,
+					password: state.password,
+				},
+				{
+					withCredentials: true,
+				}
+			);
 
-			localStorage.setItem('accessToken', res.data.accessToken);
-			localStorage.setItem('refreshToken', res.data.refreshToken);
+			reduxDispatch(setAccessToken(res.data.accessToken));
+			reduxDispatch(setUser(res.data.user));
 
 			dispatch({
 				type: ACTIONS.SET_SUCCESS,
 				payload: {
-					name: res.data.user.name,
-					surname: res.data.user.surname,
+					fullname: {
+						name: res.data.user.name,
+						surname: res.data.user.surname,
+					},
+					message: res.data.message,
 				},
 			});
 
 			redirect();
 
 			return { success: true };
-		} catch (err) {
-			const errors = err.response?.data?.errors || {};
+		} catch (error) {
+			const errors = error.response?.data?.message || '';
 
 			dispatch({ type: ACTIONS.SET_ERROR, payload: errors });
 
-			console.error(err);
+			console.error(error);
 			return { success: false };
 		} finally {
 			dispatch({ type: ACTIONS.LOADING, payload: false });
