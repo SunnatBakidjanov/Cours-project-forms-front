@@ -1,9 +1,10 @@
----
 deployment:
   tasks:
-    - echo "📦 Устанавливаю зависимости..."
+    - echo "📦 Installing dependencies..."
     - npm install
-    - echo "🔧 Собираю проект..."
+    - echo "🔧 Building Vite project..."
     - npm run build
-    - echo "🚀 Копирую содержимое dist в public_html..."
-    - rsync -a --delete dist/ ~/public_html/
+    - echo "🧹 Cleaning old files in public_html..."
+    - rm -rf ~/public_html/*
+    - echo "🚀 Deploying dist/ to public_html/"
+    - cp -R dist/* ~/public_html/
