@@ -46,7 +46,7 @@ export const LoginForm = () => {
 				<WarningMessages text={`${t('loginPage.successMessages.getting')} ${fullname?.name} ${fullname?.surname}`} styleUsePlace="succefulMessage" className={loginAuthPage.successMessage} isShowMessage={successMessage === 'CORRECT_USER'} />
 
 				<Button text={!isLoading ? t('loginPage.submitButton') : undefined} type="submit" className={classNames(styles.button, root.reverseFontColor, loginAuthPage.formBtnBgColor)}>
-					{isLoading ? <Loader className={loginAuthPage.submitLoader} /> : undefined}
+					{isLoading ? <Loader className={loginAuthPage.submitLoader} styleUsePlace="submitBtn" /> : undefined}
 				</Button>
 			</form>
 		</div>

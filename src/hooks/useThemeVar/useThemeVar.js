@@ -4,6 +4,7 @@ import { use } from 'react';
 import styles from './theme-var.module.scss';
 import loginAuthStyles from './login-auth-page.module.scss';
 import emailSentStyles from './emeail-sent-page.module.scss';
+import headerStyles from './header.module.scss';
 
 export const useThemeVar = () => {
 	const { isThemeLight } = use(ThemeContext);
@@ -17,6 +18,11 @@ export const useThemeVar = () => {
 		btnSubmit: isThemeLight ? styles.btnSubmitBgColorLithTheme : styles.btnSubmitLineBgColorDarkTheme,
 		toolbarBtnBgColor: isThemeLight ? styles.toolbarBtnBgLightTheme : styles.toolbarBtnBgDarkTheme,
 		errorMessage: isThemeLight ? styles.errorsMessagesLigthTheme : styles.errorsMessagesDarkTheme,
+		loaderPage: isThemeLight ? styles.loaderBorderTopLightTheme : styles.loaderBorderTopDarkTheme,
+	};
+
+	const header = {
+		borderBottomColor: isThemeLight ? headerStyles.borderBottomLightTheme : headerStyles.borderBottomDarktTheme,
 	};
 
 	const emeailSentPage = {
@@ -34,5 +40,5 @@ export const useThemeVar = () => {
 		successMessage: isThemeLight ? loginAuthStyles.succefulMessageColorLightTheme : loginAuthStyles.succefulMessageColorDarkTheme,
 	};
 
-	return { root, loginAuthPage, emeailSentPage };
+	return { root, loginAuthPage, emeailSentPage, header };
 };

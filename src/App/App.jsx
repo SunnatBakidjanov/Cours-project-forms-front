@@ -26,7 +26,7 @@ export const App = () => {
 						<AuthSubmitTimerProvider>
 							<Routes>
 								<Route element={<MainLayout />}>
-									<Route path="/" element={<Navigate to="/technical-work" replace />} />
+									<Route path="/" element={<Navigate to="/auth" replace />} />
 									<Route path="/technical-work" element={<Technicalwork />} />
 									<Route path="/auth" element={<Authorization />} />
 									<Route path="/email-sent" element={<EmailSentWrapper />} />

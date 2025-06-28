@@ -2,7 +2,8 @@
 	"translationBtn": "EN",
 	"unhandledError": "Ошибка, попробуйте еще раз",
 	"header": {
-		"loginBtn": "Войти"
+		"loginBtn": "Войти",
+		"logoutBtn": "Выйти"
 	},
 	"technikalWorkPage": {
 		"title": "Ведутся технические работы",

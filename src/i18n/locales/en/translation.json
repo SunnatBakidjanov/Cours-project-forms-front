@@ -2,7 +2,8 @@
 	"translationBtn": "RU",
 	"unhandledError": "Error, please try again",
 	"header": {
-		"loginBtn": "Sign In"
+		"loginBtn": "Sign In",
+		"logoutBtn": "Sign out"
 	},
 	"technikalWorkPage": {
 		"title": "Technical work is underway",

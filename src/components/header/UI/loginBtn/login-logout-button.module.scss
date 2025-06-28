@@ -1,0 +1,22 @@
+.button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 180px;
+	height: 45px;
+	font-family: Furore, sans-serif;
+	font-size: 1.1rem;
+	letter-spacing: 1px;
+	border-radius: 10px;
+	column-gap: 0.5rem;
+
+	&:hover {
+		opacity: 0.8;
+	}
+}
+
+.img {
+	width: 28px;
+	height: 28px;
+	object-fit: contain;
+}

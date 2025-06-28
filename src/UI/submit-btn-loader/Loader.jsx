@@ -7,6 +7,7 @@ export const Loader = ({ className, styleUsePlace }) => {
 			className={classNames(styles.loader, className, {
 				[styles.submitBtn]: styleUsePlace === 'submitBtn',
 				[styles.pageLoader]: styleUsePlace === 'pageLoader',
+				[styles.headerBtn]: styleUsePlace === 'headerBtn',
 			})}
 		></span>
 	);
