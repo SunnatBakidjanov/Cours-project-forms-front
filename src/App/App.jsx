@@ -12,10 +12,12 @@ import { Provider } from 'react-redux';
 import { persistor, store } from '../redux/store';
 import { LayoutWithHeader } from '../layout/LoyoutWithHeader';
 import { PersistGate } from 'redux-persist/integration/react';
+import { TemplateDetails } from '../pages/form-page/UI/TemplateDetails';
+import PrivateProvider from '../components/private-povider/PrivateProvider';
+import { FormFillingPage } from '../pages/form-filling/FormFillingPage';
 
 import './main.scss';
 import './reset.scss';
-import PrivateProvider from '../components/private-povider/PrivateProvider';
 
 export const App = () => {
 	return (
@@ -25,8 +27,9 @@ export const App = () => {
 					<ThemeContextProvider>
 						<AuthSubmitTimerProvider>
 							<Routes>
+								<Route path="/" element={<Navigate to="/form" replace />} />
+
 								<Route element={<MainLayout />}>
-									<Route path="/" element={<Navigate to="/auth" replace />} />
 									<Route path="/technical-work" element={<Technicalwork />} />
 									<Route path="/auth" element={<Authorization />} />
 									<Route path="/email-sent" element={<EmailSentWrapper />} />
@@ -41,6 +44,7 @@ export const App = () => {
 									}
 								>
 									<Route path="/form" element={<FormPage />} />
+									<Route path="/form/:key" element={<FormFillingPage />} />
 								</Route>
 							</Routes>
 						</AuthSubmitTimerProvider>

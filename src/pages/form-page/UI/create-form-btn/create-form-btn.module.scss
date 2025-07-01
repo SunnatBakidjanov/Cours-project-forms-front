@@ -1,0 +1,57 @@
+.verticalLine {
+	position: absolute;
+	width: 12px;
+	height: 60%;
+	transition:
+		height 0.3s ease-out,
+		background-color var(--change-theme-transition);
+	will-change: height;
+}
+
+.horizontalLine {
+	width: 50%;
+	height: 12px;
+	transition:
+		width 0.3s ease-out,
+		background-color var(--change-theme-transition);
+}
+
+.button {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 200px;
+	height: 150px;
+	border-width: 2px;
+	border-style: solid;
+	border-color: rgb(161 161 161);
+	border-radius: 5px;
+	transition:
+		border-color 0.2s ease-out,
+		border-color var(--change-theme-transition);
+
+	&:hover .verticalLine {
+		height: 70%;
+	}
+
+	&:hover .horizontalLine {
+		width: 60%;
+	}
+}
+
+.title {
+	margin-top: 2rem;
+	font-family: 'Roboto Flex', sans-serif;
+	font-weight: 600;
+	line-height: 120%;
+	font-size: 1.3rem;
+	letter-spacing: 0.3px;
+	transition: color var(--change-theme-transition) ease-out;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	row-gap: 0.5rem;
+}

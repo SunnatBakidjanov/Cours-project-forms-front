@@ -91,5 +91,15 @@
 			"text": "Don't have an account?",
 			"button": "Create an account"
 		}
+	},
+	"formPage": {
+		"createFormTitle": "Create a form"
+	},
+	"fillingFormPage": {
+		"title-form": {
+			"title": "New form",
+			"titlePlaceholder": "Form name",
+			"description": "Description"
+		}
 	}
 }

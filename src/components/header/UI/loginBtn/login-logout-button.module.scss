@@ -9,6 +9,9 @@
 	letter-spacing: 1px;
 	border-radius: 10px;
 	column-gap: 0.5rem;
+	transition:
+		background-color var(--change-theme-transition) ease-out,
+		color var(--change-theme-transition) ease-out;
 
 	&:hover {
 		opacity: 0.8;

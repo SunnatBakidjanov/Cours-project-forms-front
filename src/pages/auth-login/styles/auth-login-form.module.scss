@@ -119,7 +119,7 @@
 	border-radius: 5px;
 
 	&:focus ~ .labelUnderline {
-		width: 100%;
+		width: calc(100% - 3px);
 	}
 
 	&::placeholder {

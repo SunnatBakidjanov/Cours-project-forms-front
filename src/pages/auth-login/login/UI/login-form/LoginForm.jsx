@@ -30,14 +30,20 @@ export const LoginForm = () => {
 
 					<label className={styles.label}>
 						<input className={styles.input} maxLength={255} type="email" name="email" placeholder={t('loginPage.form.emailPlaceholder')} required value={email} onChange={e => setField('email', e.target.value)} />
-						<span className={classNames(styles.labelUnderline)}></span>
+						<span className={classNames(styles.labelUnderline, loginAuthPage.btnLinkUnderlineBgColor)}></span>
 						<InputImg src={emailImg} styleUsePlace="text" />
 					</label>
 				</div>
 				<div className={styles.formBlock}>
 					<Paragraph text={t('loginPage.form.password')} styleUsePlace="formText" className={root.fontColor} />
 
-					<PasswordLabel underlineThemeClassName={classNames(styles.labelUnderline)} placeholderText={t('loginPage.form.passwordPlaceholder')} name="password" value={password} onChange={e => setField('password', e.target.value)} />
+					<PasswordLabel
+						underlineThemeClassName={classNames(styles.labelUnderline, loginAuthPage.btnLinkUnderlineBgColor)}
+						placeholderText={t('loginPage.form.passwordPlaceholder')}
+						name="password"
+						value={password}
+						onChange={e => setField('password', e.target.value)}
+					/>
 				</div>
 
 				<WarningMessages text={t('loginPage.errorMessages.invalidPassword')} className={loginAuthPage.errorMessages} styleUsePlace="succefulMessage" isShowMessage={errors === 'INCORRECT_LOGIN_OR_PASSWORD'} />

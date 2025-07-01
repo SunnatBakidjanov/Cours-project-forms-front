@@ -1,8 +1,10 @@
 import { useThemeVar } from '../../hooks/useThemeVar/useThemeVar';
 
-import { MainTitle } from '../../UI/main-title/MainTitle';
 import { LoginProfile } from './UI/login-profile/LoginProfile';
 import { Underline } from './UI/underline/Underliner';
+import { Title } from './UI/title/Title';
+import { ChangeThemeButton } from '../../UI/change-theme-button/ChangeThemeButton';
+import { TranslationButton } from '../../UI/translaitor-button/TranslationButton';
 
 import classNames from 'classnames';
 import styles from './header.module.scss';
@@ -16,11 +18,12 @@ export const Header = () => {
 
 			<div className="container">
 				<div className={classNames(styles.wrapper)}>
-					<MainTitle text="Forms" className={classNames(styles.title)} />
+					<Title />
 
-					<label htmlFor="">
-						<input type="search" />
-					</label>
+					<div className={styles.toolbar}>
+						<ChangeThemeButton />
+						<TranslationButton />
+					</div>
 
 					<LoginProfile />
 				</div>

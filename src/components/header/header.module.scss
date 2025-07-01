@@ -11,9 +11,9 @@
 	height: 80px;
 }
 
-.title {
-	font-weight: 600;
-	line-height: 100%;
-	font-size: 3rem;
-	letter-spacing: 0.5px;
+.toolbar {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	column-gap: 1rem;
 }

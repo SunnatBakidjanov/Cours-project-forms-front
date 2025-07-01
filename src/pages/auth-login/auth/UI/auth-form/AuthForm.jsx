@@ -32,7 +32,7 @@ export const AuthForm = () => {
 
 					<label className={styles.label}>
 						<input className={styles.input} maxLength={50} type="text" name="name" placeholder={t('authPage.form.namePlaceholder')} required value={name} onChange={e => setField('name', e.target.value)} />
-						<span className={classNames(styles.labelUnderline)}></span>
+						<span className={classNames(styles.labelUnderline, loginAuthPage.btnLinkUnderlineBgColor)}></span>
 						<InputImg src={userImg} styleUsePlace="text" />
 					</label>
 
@@ -46,7 +46,7 @@ export const AuthForm = () => {
 
 					<label className={styles.label}>
 						<input className={styles.input} maxLength={50} type="text" name="surname" placeholder={t('authPage.form.surnamePlaceholder')} required value={surname} onChange={e => setField('surname', e.target.value)} />
-						<span className={classNames(styles.labelUnderline)}></span>
+						<span className={classNames(styles.labelUnderline, loginAuthPage.btnLinkUnderlineBgColor)}></span>
 						<InputImg src={userGroupImg} styleUsePlace="text" />
 					</label>
 
@@ -59,7 +59,7 @@ export const AuthForm = () => {
 
 					<label className={styles.label}>
 						<input className={styles.input} maxLength={255} type="email" name="email" placeholder={t('authPage.form.emailPlaceholder')} required value={email} onChange={e => setField('email', e.target.value)} />
-						<span className={classNames(styles.labelUnderline)}></span>
+						<span className={classNames(styles.labelUnderline, loginAuthPage.btnLinkUnderlineBgColor)}></span>
 						<InputImg src={emailImg} styleUsePlace="text" />
 					</label>
 
@@ -69,14 +69,20 @@ export const AuthForm = () => {
 				<div className={styles.formBlock}>
 					<Paragraph text={t('authPage.form.password')} styleUsePlace="formText" className={classNames(root.fontColor)} />
 
-					<PasswordLabel underlineThemeClassName={classNames(styles.labelUnderline)} placeholderText={t('authPage.form.passwordPlaceholder')} name="password" value={password} onChange={e => setField('password', e.target.value)} />
+					<PasswordLabel
+						underlineThemeClassName={classNames(styles.labelUnderline, loginAuthPage.btnLinkUnderlineBgColor)}
+						placeholderText={t('authPage.form.passwordPlaceholder')}
+						name="password"
+						value={password}
+						onChange={e => setField('password', e.target.value)}
+					/>
 				</div>
 
 				<div className={styles.formBlock}>
 					<Paragraph text={t('authPage.form.repeatPassword')} styleUsePlace="formText" className={classNames(root.fontColor)} />
 
 					<PasswordLabel
-						underlineThemeClassName={classNames(styles.labelUnderline)}
+						underlineThemeClassName={classNames(styles.labelUnderline, loginAuthPage.btnLinkUnderlineBgColor)}
 						placeholderText={t('authPage.form.repeatPasswordPlaceholder')}
 						name="repeat-password"
 						value={repeatPassword}

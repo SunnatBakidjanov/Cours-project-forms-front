@@ -4,4 +4,5 @@
 	width: 100%;
 	border-bottom-width: 3px;
 	border-bottom-style: solid;
+	transition: border-color var(--change-theme-transition) ease-out;
 }

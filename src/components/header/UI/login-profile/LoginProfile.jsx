@@ -10,5 +10,14 @@ export const LoginProfile = () => {
 	const navigate = useNavigate();
 	const { t } = useTranslation();
 
-	return accessToken ? <Profile /> : <LoginLogoutButton text={t('header.loginBtn')} onClick={navigate('/login')} />;
+	return accessToken ? (
+		<Profile />
+	) : (
+		<LoginLogoutButton
+			text={t('header.loginBtn')}
+			onClick={() => {
+				navigate('/login');
+			}}
+		/>
+	);
 };

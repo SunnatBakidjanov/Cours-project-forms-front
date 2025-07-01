@@ -5,6 +5,7 @@ import styles from './theme-var.module.scss';
 import loginAuthStyles from './login-auth-page.module.scss';
 import emailSentStyles from './emeail-sent-page.module.scss';
 import headerStyles from './header.module.scss';
+import formPageStyles from './form-page.module.scss';
 
 export const useThemeVar = () => {
 	const { isThemeLight } = use(ThemeContext);
@@ -25,6 +26,10 @@ export const useThemeVar = () => {
 		borderBottomColor: isThemeLight ? headerStyles.borderBottomLightTheme : headerStyles.borderBottomDarktTheme,
 	};
 
+	const formPage = {
+		createFormHoverBtn: isThemeLight ? formPageStyles.createFormHoverLigthTheme : formPageStyles.createFormHoverDarkTheme,
+	};
+
 	const emeailSentPage = {
 		checkListUnderline: isThemeLight ? emailSentStyles.checklistUnderLineLigthTheme : emailSentStyles.checklistUnderLineDarkTheme,
 	};
@@ -40,5 +45,5 @@ export const useThemeVar = () => {
 		successMessage: isThemeLight ? loginAuthStyles.succefulMessageColorLightTheme : loginAuthStyles.succefulMessageColorDarkTheme,
 	};
 
-	return { root, loginAuthPage, emeailSentPage, header };
+	return { root, loginAuthPage, emeailSentPage, header, formPage };
 };

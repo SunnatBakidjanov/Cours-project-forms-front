@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useReducer } from 'react';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../../redux/slices/authSlice';
+import { useNavigate } from 'react-router-dom';
 
 const APP_URL = import.meta.env.VITE_API_URL;
 
@@ -29,12 +30,15 @@ const reducer = (state, { type, payload }) => {
 export const useLogout = () => {
 	const [state, dispatchLocal] = useReducer(reducer, initialState);
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	const logoutHandler = async () => {
 		dispatchLocal({ type: ACTIONS.SET_LOADING, payload: true });
 
 		try {
 			await axios.post(`${APP_URL}/api/logout`, {}, { withCredentials: true });
+
+			navigate('/form', { replace: true });
 
 			dispatch(logout());
 		} catch (error) {

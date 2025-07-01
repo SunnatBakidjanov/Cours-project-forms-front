@@ -91,5 +91,15 @@
 			"text": "У вас нет учетной записи?",
 			"button": "Создать аккаунт"
 		}
+	},
+	"formPage": {
+		"createFormTitle": "Создать форму"
+	},
+	"fillingFormPage": {
+		"title-form": {
+			"title": "Новая форма",
+			"titlePlaceholder": "Название формы",
+			"description": "Описание"
+		}
 	}
 }

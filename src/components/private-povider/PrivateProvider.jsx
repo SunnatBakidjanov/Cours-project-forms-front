@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logout, setAccessToken, setUser } from '../../redux/slices/authSlice';
 import { useThemeVar } from '../../hooks/useThemeVar/useThemeVar';
+import { useNavigate } from 'react-router-dom';
 import axiosPrivate from '../../api/axiosPrivate';
 
 import { Loader } from '../../UI/submit-btn-loader/Loader';
@@ -12,6 +13,7 @@ import { Background } from '../../UI/background/Background';
 
 const PrivateProvider = ({ children }) => {
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 	const [initialized, setInitialized] = useState(false);
 	const { root } = useThemeVar();
 
@@ -27,7 +29,8 @@ const PrivateProvider = ({ children }) => {
 				}
 			} catch (err) {
 				console.error('PrivateProvider error:', err);
-				console.log(err.response.data);
+
+				navigate('/form');
 
 				dispatch(logout());
 			} finally {

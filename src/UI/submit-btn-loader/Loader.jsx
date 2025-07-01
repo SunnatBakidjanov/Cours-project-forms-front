@@ -8,6 +8,7 @@ export const Loader = ({ className, styleUsePlace }) => {
 				[styles.submitBtn]: styleUsePlace === 'submitBtn',
 				[styles.pageLoader]: styleUsePlace === 'pageLoader',
 				[styles.headerBtn]: styleUsePlace === 'headerBtn',
+				[styles.formCreateBtn]: styleUsePlace === 'formCreateBtn',
 			})}
 		></span>
 	);
