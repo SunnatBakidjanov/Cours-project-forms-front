@@ -1,12 +1,14 @@
 import { useEffect, useReducer, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
+import { setDataSaveText, setTitle } from '../../../redux/slices/createFormSlice';
 import axiosPrivate from '../../../api/axiosPrivate';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
 const TIMERS = {
-	TITLE_EMPTY_DILAY: 500,
+	TITLE_EMPTY_DILAY: 800,
 	CHANGE_SAVE_DILAY: 1000,
 };
 
@@ -58,6 +60,7 @@ const reducer = (state, { type, field, payload }) => {
 
 export const useTitleForm = () => {
 	const [state, dispatch] = useReducer(reducer, initialState);
+	const reduxDispatch = useDispatch();
 
 	const { key } = useParams();
 	const timerRef = useRef(null);
@@ -71,12 +74,16 @@ export const useTitleForm = () => {
 
 	const handleSubmit = async () => {
 		try {
+			reduxDispatch(setDataSaveText(true));
+
 			await axiosPrivate.patch(`${API_URL}/api/forms/${key}`, {
 				title: state.title,
 				description: state.description,
 			});
 		} catch (error) {
 			dispatch({ type: ACTIONS.SET_ERROR, payload: error?.response?.data?.message });
+		} finally {
+			reduxDispatch(setDataSaveText(false));
 		}
 	};
 
@@ -96,22 +103,23 @@ export const useTitleForm = () => {
 	}, [i18n.language]);
 
 	useEffect(() => {
+		clearTimeout(timerRef.current);
+		clearTimeout(emptyTitleTimerRef.current);
+
 		if (state.isTitle && state.title === '') {
 			emptyTitleTimerRef.current = setTimeout(() => {
-				console.log('work?');
-
 				dispatch({ type: ACTIONS.SET_TITLE, payload: t('fillingFormPage.title-form.title') });
 			}, TIMERS.TITLE_EMPTY_DILAY);
 		}
 
-		clearTimeout(timerRef.current);
-
 		timerRef.current = setTimeout(() => {
 			handleSubmit();
+			reduxDispatch(setTitle(state.title));
 		}, TIMERS.CHANGE_SAVE_DILAY);
 
 		return () => {
 			clearTimeout(timerRef.current);
+			clearTimeout(emptyTitleTimerRef.current);
 		};
 	}, [state.title, state.description, state.isTitle]);
 
@@ -119,6 +127,7 @@ export const useTitleForm = () => {
 		(async () => {
 			try {
 				const res = await axiosPrivate.get(`${API_URL}/api/forms/${key}`);
+
 				dispatch({
 					type: ACTIONS.SET_FORM,
 					payload: {
@@ -128,8 +137,10 @@ export const useTitleForm = () => {
 						isTitle: true,
 					},
 				});
+				reduxDispatch(setTitle(res?.data?.title));
 			} catch (error) {
 				dispatch({ type: ACTIONS.SET_ERROR, payload: error?.response?.data?.message });
+			} finally {
 			}
 		})();
 	}, []);

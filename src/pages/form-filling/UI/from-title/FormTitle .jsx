@@ -12,7 +12,7 @@ export const FormTitle = () => {
 	const { title, description } = state;
 
 	return (
-		<form>
+		<form className={classNames(styles.form)}>
 			<label className={styles.label}>
 				<input className={styles.input} maxLength={50} type="text" name="title" placeholder={t('fillingFormPage.title-form.titlePlaceholder')} required value={title || ''} onChange={e => setField('title', e.target.value)} />
 				<span className={classNames(styles.labelUnderline, loginAuthPage.btnLinkUnderlineBgColor)}></span>

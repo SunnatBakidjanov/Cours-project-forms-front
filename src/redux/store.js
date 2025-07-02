@@ -4,6 +4,7 @@ import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
 
 import authReducer from './slices/authSlice';
+import formSlice from './slices/createFormSlice';
 
 const persistConfig = {
 	key: 'root',
@@ -12,6 +13,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
 	auth: authReducer,
+	createForm: formSlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

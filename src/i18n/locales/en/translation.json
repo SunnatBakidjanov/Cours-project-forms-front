@@ -96,6 +96,11 @@
 		"createFormTitle": "Create a form"
 	},
 	"fillingFormPage": {
+		"actionBar": {
+			"title": "Create a form",
+			"savingDataText": "Saving data...",
+			"savedDateText": "Data saved."
+		},
 		"title-form": {
 			"title": "New form",
 			"titlePlaceholder": "Form name",

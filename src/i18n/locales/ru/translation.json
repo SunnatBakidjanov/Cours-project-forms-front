@@ -96,6 +96,11 @@
 		"createFormTitle": "Создать форму"
 	},
 	"fillingFormPage": {
+		"actionBar": {
+			"title": "Создать форму",
+			"savingDataText": "Сохранение данных...",
+			"savedDateText": "Данные сохранены."
+		},
 		"title-form": {
 			"title": "Новая форма",
 			"titlePlaceholder": "Название формы",
