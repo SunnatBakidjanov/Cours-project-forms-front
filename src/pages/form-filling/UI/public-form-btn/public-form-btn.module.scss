@@ -1,0 +1,24 @@
+.button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 270px;
+	height: 40px;
+	font-family: Furore, sans-serif;
+	font-size: 1.1rem;
+	letter-spacing: 1px;
+	border-radius: 10px;
+	column-gap: 0.5rem;
+	transition:
+		background-color var(--change-theme-transition) ease-out,
+		color var(--change-theme-transition) ease-out;
+
+	&:hover {
+		opacity: 0.8;
+	}
+}
+
+.buttonIsPublished {
+	opacity: 0.8;
+	cursor: no-drop;
+}

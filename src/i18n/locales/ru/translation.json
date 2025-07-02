@@ -100,7 +100,8 @@
 			"title": "Создать форму",
 			"savingDataText": "Сохранение данных...",
 			"savedDateText": "Данные сохранены.",
-			"publicBtn": "Publish"
+			"publicBtn": "Опубликовать",
+			"publicBtnEdit": "Редактировать"
 		},
 		"title-form": {
 			"title": "Новая форма",

@@ -2,7 +2,7 @@ import { useEffect, useReducer, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
-import { setDataSaveText, setTitle } from '../../../redux/slices/createFormSlice';
+import { setDataSaveText, setLoader, setPulish, setTitle } from '../../../redux/slices/createFormSlice';
 import axiosPrivate from '../../../api/axiosPrivate';
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -126,6 +126,8 @@ export const useTitleForm = () => {
 
 	useEffect(() => {
 		(async () => {
+			reduxDispatch(setLoader(true));
+
 			try {
 				const res = await axiosPrivate.get(`${API_URL}/api/forms/${key}`);
 
@@ -139,9 +141,11 @@ export const useTitleForm = () => {
 					},
 				});
 				reduxDispatch(setTitle(res?.data?.title));
+				reduxDispatch(setPulish(res?.data?.isPublic));
 			} catch (error) {
 				dispatch({ type: ACTIONS.SET_ERROR, payload: error?.response?.data?.message });
 			} finally {
+				reduxDispatch(setLoader(false));
 			}
 		})();
 	}, []);

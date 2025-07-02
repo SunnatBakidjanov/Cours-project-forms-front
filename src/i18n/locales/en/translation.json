@@ -100,7 +100,8 @@
 			"title": "Create a form",
 			"savingDataText": "Saving data...",
 			"savedDateText": "Data saved.",
-			"publicBtn": "Publish"
+			"publicBtn": "Publish",
+			"publicBtnEdit": "Edit"
 		},
 		"title-form": {
 			"title": "New form",

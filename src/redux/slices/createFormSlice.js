@@ -3,6 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
 	title: null,
 	isDataSaving: false,
+	isPublish: false,
+	isLoading: false,
 };
 
 const formSlice = createSlice({
@@ -15,8 +17,14 @@ const formSlice = createSlice({
 		setDataSaveText: (state, action) => {
 			state.isDataSaving = action.payload;
 		},
+		setPulish: (state, action) => {
+			state.isPublish = action.payload;
+		},
+		setLoader: (state, action) => {
+			state.isLoading = action.payload;
+		},
 	},
 });
 
-export const { setTitle, setDataSaveText } = formSlice.actions;
+export const { setTitle, setDataSaveText, setPulish, setLoader } = formSlice.actions;
 export default formSlice.reducer;
