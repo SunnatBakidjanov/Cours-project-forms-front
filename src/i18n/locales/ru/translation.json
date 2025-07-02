@@ -99,7 +99,8 @@
 		"actionBar": {
 			"title": "Создать форму",
 			"savingDataText": "Сохранение данных...",
-			"savedDateText": "Данные сохранены."
+			"savedDateText": "Данные сохранены.",
+			"publicBtn": "Publish"
 		},
 		"title-form": {
 			"title": "Новая форма",

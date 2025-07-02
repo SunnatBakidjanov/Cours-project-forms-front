@@ -1,3 +1,66 @@
 .form {
-	margin-top: 5rem;
+	display: flex;
+	flex-direction: column;
+	row-gap: 1rem;
+	margin-top: 3rem;
+	padding: 2rem;
+	border-radius: 10px;
+	transition: box-shadow var(--change-theme-transition) ease-out;
+}
+
+.label {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+.labelUnderline {
+	position: absolute;
+	bottom: 0;
+	width: 0%;
+	height: 3px;
+	pointer-events: none;
+	transition:
+		width 0.3s,
+		background-color var(--change-theme-transition) ease-out;
+}
+
+.inputRoot {
+	padding: 0.5rem;
+	width: 100%;
+	font-family: 'Roboto Flex', sans-serif;
+	border-bottom: 1px solid var(--main-accent-color);
+	transition:
+		color var(--change-theme-transition) ease-out,
+		background-color var(--change-theme-transition) ease-out;
+
+	&:focus ~ .labelUnderline {
+		width: 100%;
+	}
+
+	&::placeholder {
+		font-family: 'Roboto Flex', sans-serif;
+		font-weight: 400;
+		opacity: 0.5;
+	}
+}
+
+.inputTitle {
+	font-size: 2rem;
+
+	&::placeholder {
+		font-family: 'Roboto Flex', sans-serif;
+		font-weight: 400;
+		font-size: 1.8rem;
+		opacity: 0.5;
+	}
+}
+
+.inputDiscription {
+	font-size: 1.2rem;
+
+	&::placeholder {
+		font-size: 1.2rem;
+	}
 }

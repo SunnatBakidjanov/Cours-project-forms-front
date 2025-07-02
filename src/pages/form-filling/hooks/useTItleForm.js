@@ -120,6 +120,7 @@ export const useTitleForm = () => {
 		return () => {
 			clearTimeout(timerRef.current);
 			clearTimeout(emptyTitleTimerRef.current);
+			reduxDispatch(setTitle((state.title = '')));
 		};
 	}, [state.title, state.description, state.isTitle]);
 
