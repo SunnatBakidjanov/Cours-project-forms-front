@@ -33,7 +33,7 @@ export const FormsList = () => {
 						);
 					})
 				) : (
-					<p className={styles.noFormText}>{t('formPage.noForms')}</p>
+					<p className={classNames(styles.noFormText, root.fontColor)}>{t('formPage.noForms')}</p>
 				)}
 			</ul>
 		</section>
