@@ -22,7 +22,7 @@ export const FormsList = () => {
 			</h2>
 
 			<ul className={classNames(styles.list)}>
-				{forms.length > 0 ? (
+				{forms.length < 0 ? (
 					forms.map(form => {
 						const formTitleShort = form.title && form.title.length > 15 ? `${form.title.slice(0, 30)}...` : form.title;
 
@@ -33,7 +33,7 @@ export const FormsList = () => {
 						);
 					})
 				) : (
-					<p>{t('formPage.noForms')}</p>
+					<p className={styles.noFormText}>{t('formPage.noForms')}</p>
 				)}
 			</ul>
 		</section>
