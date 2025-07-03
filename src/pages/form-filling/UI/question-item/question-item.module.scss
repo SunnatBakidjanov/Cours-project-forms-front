@@ -1,0 +1,58 @@
+.block {
+	display: flex;
+	flex-direction: column;
+	row-gap: 1rem;
+	padding: 2rem 2rem 0.75rem;
+	border-radius: 10px;
+	transition: box-shadow var(--change-theme-transition) ease-out;
+}
+
+.innerBtn {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.label {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+.labelUnderline {
+	position: absolute;
+	bottom: 0;
+	width: 0%;
+	height: 3px;
+	pointer-events: none;
+	transition:
+		width 0.3s,
+		background-color var(--change-theme-transition) ease-out;
+}
+
+.input {
+	padding: 0.5rem;
+	width: 100%;
+	font-family: 'Roboto Flex', sans-serif;
+	font-size: 1rem;
+	border-bottom: 1px solid var(--main-accent-color);
+	transition:
+		color var(--change-theme-transition) ease-out,
+		background-color var(--change-theme-transition) ease-out;
+
+	&:focus ~ .labelUnderline {
+		width: 100%;
+	}
+
+	&::placeholder {
+		font-family: 'Roboto Flex', sans-serif;
+		font-weight: 400;
+		opacity: 0.5;
+	}
+}
+
+.button {
+	&:hover {
+		opacity: 0.8;
+	}
+}

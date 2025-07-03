@@ -16,10 +16,49 @@
 	&:hover {
 		opacity: 0.8;
 	}
+
+	@media (width <= 1440px) {
+		width: 170px;
+		height: 40px;
+	}
+
+	@media (width <= 768px) {
+		width: 160px;
+		font-size: 1rem;
+		column-gap: 0.4rem;
+	}
+
+	@media (width <= 550px) {
+		height: 35px;
+		font-size: 0.95rem;
+		column-gap: 0.4rem;
+	}
+
+	@media (width <= 425px) {
+		width: 150px;
+		height: 30px;
+		font-size: 0.9rem;
+		column-gap: 0.3rem;
+	}
 }
 
 .img {
 	width: 28px;
 	height: 28px;
 	object-fit: contain;
+
+	@media (width <= 768px) {
+		width: 26px;
+		height: 26px;
+	}
+
+	@media (width <= 550px) {
+		width: 24px;
+		height: 24px;
+	}
+
+	@media (width <= 425px) {
+		width: 20px;
+		height: 20px;
+	}
 }

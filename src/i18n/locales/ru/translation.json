@@ -107,6 +107,10 @@
 			"title": "Новая форма",
 			"titlePlaceholder": "Название формы",
 			"description": "Описание"
+		},
+		"questions": {
+			"addQuestion": "Добавить вопрос",
+			"placeholder": "Введите вопрос"
 		}
 	}
 }

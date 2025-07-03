@@ -107,6 +107,10 @@
 			"title": "New form",
 			"titlePlaceholder": "Form name",
 			"description": "Description"
+		},
+		"questions": {
+			"addQuestion": "Add a question",
+			"placeholder": "Enter a question"
 		}
 	}
 }
