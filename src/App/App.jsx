@@ -44,6 +44,7 @@ export const App = () => {
 									}
 								>
 									<Route path="/form" element={<FormPage />} />
+									<Route path="/template/:id" element={<TemplateDetails />} />
 									<Route path="/form/:key" element={<FormFillingPage />} />
 								</Route>
 							</Routes>

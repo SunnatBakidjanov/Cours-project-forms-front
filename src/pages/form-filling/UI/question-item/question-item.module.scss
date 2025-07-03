@@ -5,6 +5,18 @@
 	padding: 2rem 2rem 0.75rem;
 	border-radius: 10px;
 	transition: box-shadow var(--change-theme-transition) ease-out;
+
+	@media (width <= 768px) {
+		padding: 1.8rem 1.5rem 0.75rem;
+	}
+
+	@media (width <= 550px) {
+		padding: 1.5rem 1rem 0.75rem;
+	}
+
+	@media (width <= 425px) {
+		padding: 1.5rem 0.75rem 0.75rem;
+	}
 }
 
 .innerBtn {
@@ -34,7 +46,7 @@
 	padding: 0.5rem;
 	width: 100%;
 	font-family: 'Roboto Flex', sans-serif;
-	font-size: 1rem;
+	font-size: 1.1rem;
 	border-bottom: 1px solid var(--main-accent-color);
 	transition:
 		color var(--change-theme-transition) ease-out,
@@ -48,6 +60,10 @@
 		font-family: 'Roboto Flex', sans-serif;
 		font-weight: 400;
 		opacity: 0.5;
+	}
+
+	@media (width <= 550px) {
+		font-size: 0.95rem;
 	}
 }
 

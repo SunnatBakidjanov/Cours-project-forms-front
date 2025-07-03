@@ -1,5 +1,21 @@
 .section {
 	margin: 2rem 0 5rem;
+
+	@media (width <= 1024px) {
+		margin: 1.8rem 0 4.5rem;
+	}
+
+	@media (width <= 768px) {
+		margin: 1.5rem 0 4rem;
+	}
+
+	@media (width <= 550px) {
+		margin: 1.3rem 0 3.5rem;
+	}
+
+	@media (width <= 425px) {
+		margin: 1.2rem 0 3rem;
+	}
 }
 
 .wrapper {
@@ -33,5 +49,22 @@
 
 	&:hover {
 		opacity: 0.8;
+	}
+
+	@media (width <= 1024px) {
+		font-size: 1.15rem;
+	}
+
+	@media (width <= 768px) {
+		font-size: 1.1rem;
+	}
+
+	@media (width <= 550px) {
+		font-size: 1.05rem;
+	}
+
+	@media (width <= 425px) {
+		padding: 0.5rem;
+		font-size: 1rem;
 	}
 }

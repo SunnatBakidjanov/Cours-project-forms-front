@@ -6,6 +6,25 @@
 	padding: 2rem;
 	border-radius: 10px;
 	transition: box-shadow var(--change-theme-transition) ease-out;
+
+	@media (width <= 1024px) {
+		margin-top: 2.5rem;
+	}
+
+	@media (width <= 768px) {
+		margin-top: 2rem;
+		padding: 1.5rem;
+	}
+
+	@media (width <= 550px) {
+		margin-top: 1.8rem;
+		padding: 1.5rem 1rem;
+	}
+
+	@media (width <= 425px) {
+		margin-top: 1.5rem;
+		padding: 1.2rem 0.75rem;
+	}
 }
 
 .label {
@@ -55,6 +74,38 @@
 		font-size: 1.8rem;
 		opacity: 0.5;
 	}
+
+	@media (width <= 1024px) {
+		font-size: 1.8rem;
+
+		&::placeholder {
+			font-size: 1.6rem;
+		}
+	}
+
+	@media (width <= 768px) {
+		font-size: 1.6rem;
+
+		&::placeholder {
+			font-size: 1.4rem;
+		}
+	}
+
+	@media (width <= 550px) {
+		font-size: 1.4rem;
+
+		&::placeholder {
+			font-size: 1.2rem;
+		}
+	}
+
+	@media (width <= 425px) {
+		font-size: 1.2rem;
+
+		&::placeholder {
+			font-size: 1rem;
+		}
+	}
 }
 
 .inputDiscription {
@@ -62,5 +113,37 @@
 
 	&::placeholder {
 		font-size: 1.2rem;
+	}
+
+	@media (width <= 1024px) {
+		font-size: 1.1rem;
+
+		&::placeholder {
+			font-size: 1.1rem;
+		}
+	}
+
+	@media (width <= 768px) {
+		font-size: 1rem;
+
+		&::placeholder {
+			font-size: 1rem;
+		}
+	}
+
+	@media (width <= 550px) {
+		font-size: 0.95rem;
+
+		&::placeholder {
+			font-size: 0.95rem;
+		}
+	}
+
+	@media (width <= 425px) {
+		font-size: 0.9rem;
+
+		&::placeholder {
+			font-size: 0.9rem;
+		}
 	}
 }
