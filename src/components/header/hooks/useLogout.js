@@ -38,7 +38,7 @@ export const useLogout = () => {
 		try {
 			await axios.post(`${APP_URL}/api/logout`, {}, { withCredentials: true });
 
-			navigate('/form', { replace: true });
+			navigate('/login', { replace: true });
 
 			dispatch(logout());
 		} catch (error) {

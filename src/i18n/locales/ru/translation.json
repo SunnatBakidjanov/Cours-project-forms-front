@@ -93,7 +93,9 @@
 		}
 	},
 	"formPage": {
-		"createFormTitle": "Создать форму"
+		"createFormTitle": "Создать форму",
+		"noForms": "Форм пока нет",
+		"myFormsTitle": "Мои созданные формы"
 	},
 	"fillingFormPage": {
 		"actionBar": {

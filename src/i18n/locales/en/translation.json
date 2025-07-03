@@ -93,7 +93,9 @@
 		}
 	},
 	"formPage": {
-		"createFormTitle": "Create a form"
+		"createFormTitle": "Create a form",
+		"noForms": "No forms yet",
+		"myFormsTitle": "My created forms"
 	},
 	"fillingFormPage": {
 		"actionBar": {

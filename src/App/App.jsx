@@ -27,7 +27,7 @@ export const App = () => {
 					<ThemeContextProvider>
 						<AuthSubmitTimerProvider>
 							<Routes>
-								<Route path="/" element={<Navigate to="/form" replace />} />
+								<Route path="/" element={<Navigate to="/login" replace />} />
 
 								<Route element={<MainLayout />}>
 									<Route path="/technical-work" element={<Technicalwork />} />
